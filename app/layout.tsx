@@ -1,19 +1,18 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '../components/navbar'
-import SideNav from '@/components/side-nav'
 import Footer from '@/components/footer'
 import SearchMenu from '@/components/search-menu'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SupabaseDataProvider } from '@/components/supabase-provider'
-import SpaceTimeFabric from '@/components/space-time-fabric'
+import { SpacetimeBackground } from '@/components/spacetime-background'
 
 export const metadata: Metadata = {
   title: {
     default: 'Neural Manacle',
-    template: '%s | neural manacle'
+    template: '%s | Neural Manacle'
   },
-  description: 'in a synthetic dream',
+  description: 'Audio Software Engineer focused on DSP, C++, JUCE, computational music synthesis, and game audio.',
   metadataBase: new URL('https://neuralmanacle.blog'),
   alternates: {
     canonical: '/',
@@ -24,27 +23,23 @@ export const metadata: Metadata = {
     apple: '/logo.png',
   },
   openGraph: {
-    title: 'neural manacle',
-    description: 'An exploration of art, tech, and spirituality.',
+    title: 'Neural Manacle',
+    description: 'A technical notebook for audio software engineering experiments, reading, and future projects.',
     url: 'https://neuralmanacle.blog',
-    siteName: 'neural manacle',
+    siteName: 'Neural Manacle',
     locale: 'en_US',
     type: 'website',
     images: ['/logo.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'neural manacle',
-    description: 'An exploration of art, tech, and spirituality.',
+    title: 'Neural Manacle',
+    description: 'A technical notebook for audio software engineering experiments, reading, and future projects.',
     images: ['/logo.png'],
   }
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -62,14 +57,11 @@ export default function RootLayout({
 html { font-family: var(--font-mono); }
         `}</style>
       </head>
-      <body className="min-h-dvh bg-white text-black dark:bg-black dark:text-white antialiased" suppressHydrationWarning={true}>
+      <body className="min-h-dvh bg-[#0D0D0D] text-[#F2F2F2] antialiased" suppressHydrationWarning={true}>
         <SupabaseDataProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <SpaceTimeFabric />
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+            <SpacetimeBackground />
             <Navbar />
-            <SideNav />
-            {/* Mirrored right-side border for desktop symmetry */}
-            <div className="fixed right-0 top-0 h-screen w-14 z-40 hidden md:block pointer-events-none bg-gradient-to-l from-white/25 dark:from-black/20 to-transparent backdrop-blur-[1px] border-l border-neutral-200/40 dark:border-neutral-800/40" />
             {children}
             <Footer />
             <SearchMenu />

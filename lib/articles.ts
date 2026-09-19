@@ -7,6 +7,68 @@ export interface Article {
   content?: string
 }
 
+export type FieldNote = Article & { number: number; readingTime: string }
+
+const INCLUDE_TAGS = new Set([
+  "tech", "dsp", "juce", "c++", "game-audio", "audio", "deep-learning",
+  "speech-to-text", "langchain", "wasm", "typescript", "mcp", "cli",
+  "hashing", "gis", "map-visualization", "ui-ux", "streaming",
+  "semantic-indexing", "context-isolation", "vertex-ai", "agent-memory",
+  "meetup", "python", "neural-networks", "futurism", "langchainjs",
+  "quickjs", "kaldi", "edge-computing",
+])
+
+const EXCLUDE_TAGS = new Set([
+  "poetry", "spirituality", "yoga", "ethics", "travel", "writing",
+  "manhood", "rehabilitation", "quit-social-media", "socio-economic",
+  "archives",
+])
+
+export function getFieldNotes(): FieldNote[] {
+  const filtered = articles.filter((article) => {
+    if (!article.tags || article.tags.length === 0) return false
+
+    const hasIncludeTag = article.tags.some((tag) => INCLUDE_TAGS.has(tag))
+    const hasExcludeTag = article.tags.some((tag) => EXCLUDE_TAGS.has(tag))
+
+    if (hasExcludeTag && !hasIncludeTag) return false
+    if (!hasIncludeTag) return false
+
+    return true
+  })
+
+  const sorted = [...filtered].sort((a, b) => {
+    const dateA = new Date(a.date).getTime()
+    const dateB = new Date(b.date).getTime()
+    return dateB - dateA
+  })
+
+  return sorted.map((article, index) => {
+    const combined = `${article.title} ${article.takeaway}`
+    let wordCount = 0
+    try {
+      wordCount = combined.trim().split(/\s+/).filter(Boolean).length
+    } catch {
+      wordCount = 0
+    }
+
+    let readingTime: string
+    if (wordCount > 0) {
+      const minutes = Math.ceil(wordCount / 200)
+      const clamped = Math.max(minutes, 2)
+      readingTime = `${clamped} min read`
+    } else {
+      readingTime = "3 min read"
+    }
+
+    return {
+      ...article,
+      number: index + 1,
+      readingTime,
+    }
+  })
+}
+
 export const articles: Article[] = [
   {
     date: "August 26, 2026",

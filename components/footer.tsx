@@ -1,22 +1,27 @@
 "use client"
 
 import Link from "next/link"
+import { BookOpen, Github, Linkedin, Mail } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 export default function Footer() {
   return (
-    <footer className="mx-auto w-full max-w-2xl px-4 pb-20 border-t border-neutral-100 dark:border-neutral-900 pt-8 font-mono text-xs text-neutral-500">
-      <div className="space-y-6">
-        <div className="flex justify-between items-center text-xs text-neutral-400 dark:text-neutral-600 pt-4 border-t border-neutral-100/50 dark:border-neutral-900/50">
-          <span className="inline-flex items-center gap-1.5 animate-rainbow">
-            <span>&copy; {new Date().getFullYear()}</span>
-            <span
-              className="font-mono text-xs font-semibold"
-            >
-              neural manacle
-            </span>
-          </span>
-          <Link href="/changes" className="transition-colors animate-rainbow">
-            site changelog
+    <footer className={cn("relative z-10 mx-auto w-full max-w-5xl px-6 pb-12 pt-12 sm:px-8") }>
+      <div className="border-t border-neutral-800 pt-8">
+        <p className="text-sm italic text-[#F7B904]">Neural Manacle</p>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <Link href="https://github.com/neuralmanacle" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-neutral-300 transition-colors hover:text-[#F7B904]">
+            <Github className="h-4 w-4" /> GitHub
+          </Link>
+          <Link href="https://www.linkedin.com/in/neuralmanacle" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-neutral-300 transition-colors hover:text-[#F7B904]">
+            <Linkedin className="h-4 w-4" /> LinkedIn
+          </Link>
+          <Link href="https://www.goodreads.com/neuralmanacle" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-neutral-300 transition-colors hover:text-[#F7B904]">
+            <BookOpen className="h-4 w-4" /> Goodreads
+          </Link>
+          <Link href="mailto:neuralmanacle@gmail.com" className="inline-flex items-center gap-2 text-sm text-neutral-300 transition-colors hover:text-[#F7B904]">
+            <Mail className="h-4 w-4" /> Email
           </Link>
         </div>
       </div>
