@@ -7,7 +7,7 @@ const navItems = [
   { label: "Experience", href: "/#experience" },
   { label: "Newsletter", href: "/#newsletter" },
   { label: "About", href: "/about" },
-  { label: "Book a Call", href: "https://cal.com/arjun" },
+  { label: "Book a Call", href: "https://cal.com/neuralmanacle" },
 ]
 
 export function SiteNavigation() {

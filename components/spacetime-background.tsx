@@ -36,9 +36,12 @@ export function SpacetimeBackground() {
     cameraRef.current = camera
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8))
     renderer.setClearColor(0x000000, 0)
     rendererRef.current = renderer
+    renderer.domElement.style.filter = 'blur(14px) saturate(1.25) brightness(1.08)'
+    renderer.domElement.style.opacity = '0.8'
+    renderer.domElement.style.transform = 'scale(1.08)'
+    renderer.domElement.style.transformOrigin = 'center center'
     mount.appendChild(renderer.domElement)
 
     const group = new THREE.Group()
@@ -105,12 +108,21 @@ export function SpacetimeBackground() {
       const { innerWidth, innerHeight } = window
       const width = Math.max(innerWidth, 320)
       const height = Math.max(innerHeight, 240)
+      const isSmallViewport = width < 768
+      const pixelRatioLimit = isSmallViewport ? 1.4 : 1.8
+
       frameState.current.width = width
       frameState.current.height = height
 
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, pixelRatioLimit))
       camera.aspect = width / height
       camera.updateProjectionMatrix()
       renderer.setSize(width, height, false)
+
+      const viewportScale = Math.min(1.2, Math.max(0.7, width / 1400))
+      const cameraDistance = isSmallViewport ? 11.8 : 12.4
+      camera.position.set(0, 0.3, cameraDistance)
+      group.scale.setScalar(viewportScale)
     }
 
     const animate = () => {
@@ -125,10 +137,13 @@ export function SpacetimeBackground() {
       }
 
       const t = performance.now() * 0.00045
+      const responsiveScale = Math.min(1.2, Math.max(0.7, frameState.current.width / 1400))
+
       group.rotation.x = -0.68 + Math.sin(t * 1.1) * 0.12
       group.rotation.y = t * 0.9
       group.rotation.z = Math.sin(t) * 0.08
       group.position.y = Math.sin(t * 1.8) * 0.25
+      group.scale.setScalar(responsiveScale)
       warpCurve.rotation.z += 0.003
       warpCurve.rotation.x += 0.0015
 

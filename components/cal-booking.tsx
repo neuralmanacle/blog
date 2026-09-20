@@ -8,7 +8,7 @@ export function CalBooking() {
         If you're working in music technology, audio software, DSP, or related areas, I&apos;m open to thoughtful conversations.
       </p>
       <a
-        href="https://cal.com/arjun"
+        href="https://cal.com/neuralmanacle"
         target="_blank"
         rel="noreferrer"
         className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#F7B904] transition-colors hover:text-[#f8c12a]"

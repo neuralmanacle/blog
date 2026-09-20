@@ -41,8 +41,8 @@ export default function Navbar({ className }: { className?: string }) {
 
   return (
     <header className={cn("sticky top-0 z-50 w-full bg-[#0D0D0D]/70 backdrop-blur-md", className)}>
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-8">
-        <Link href="/" className="inline-flex items-center rounded-full border border-neutral-700 bg-black/20 p-1.5 text-[#F5F1E8] transition-colors hover:border-[#F7B904] hover:text-[#F7B904] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7B904] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]" aria-label="Home">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 sm:px-8">
+        <Link href="/" className="inline-flex shrink-0 items-center rounded-full border border-neutral-700 bg-black/20 p-1.5 text-[#F5F1E8] transition-colors hover:border-[#F7B904] hover:text-[#F7B904] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7B904] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]" aria-label="Home">
           <Image
             src="/logo.png"
             alt="Logo"
@@ -53,7 +53,7 @@ export default function Navbar({ className }: { className?: string }) {
           />
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-1 xl:flex">
           {navigationItems.map((item) => (
             <Link
               key={item.label}
@@ -68,7 +68,7 @@ export default function Navbar({ className }: { className?: string }) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden md:block">
+          <div className="hidden xl:block">
             <SocialLinks />
           </div>
           <button
@@ -77,7 +77,7 @@ export default function Navbar({ className }: { className?: string }) {
             aria-expanded={menuOpen}
             aria-controls="mobile-nav-overlay"
             onClick={() => setMenuOpen((value) => !value)}
-            className="inline-flex items-center justify-center rounded-md border border-neutral-700 p-2 text-neutral-200 transition-colors hover:border-[#F7B904] hover:text-[#F7B904] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7B904] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] md:hidden"
+            className="inline-flex items-center justify-center rounded-md border border-neutral-700 p-2 text-neutral-200 transition-colors hover:border-[#F7B904] hover:text-[#F7B904] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7B904] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] xl:hidden"
           >
             {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -87,7 +87,7 @@ export default function Navbar({ className }: { className?: string }) {
       <div
         id="mobile-nav-overlay"
         className={cn(
-          "fixed inset-x-0 top-[68px] z-50 bg-[#0D0D0D]/90 backdrop-blur-lg transition-all duration-300 md:hidden",
+          "fixed inset-x-0 top-[68px] z-50 bg-[#0D0D0D]/90 backdrop-blur-lg transition-all duration-300 xl:hidden",
           menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         )}
         aria-hidden={!menuOpen}
