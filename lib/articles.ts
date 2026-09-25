@@ -11,11 +11,8 @@ export type FieldNote = Article & { number: number; readingTime: string }
 
 const INCLUDE_TAGS = new Set([
   "tech", "dsp", "juce", "c++", "game-audio", "audio", "deep-learning",
-  "speech-to-text", "langchain", "wasm", "typescript", "mcp", "cli",
-  "hashing", "gis", "map-visualization", "ui-ux", "streaming",
-  "semantic-indexing", "context-isolation", "vertex-ai", "agent-memory",
-  "meetup", "python", "neural-networks", "futurism", "langchainjs",
-  "quickjs", "kaldi", "edge-computing",
+  "speech-to-text","vertex-ai", "agent-memory",
+  "meetup", "python", "neural-networks"
 ])
 
 const EXCLUDE_TAGS = new Set([
@@ -70,6 +67,13 @@ export function getFieldNotes(): FieldNote[] {
 }
 
 export const articles: Article[] = [
+  {
+    date: "September 25, 2026",
+    title: "Learning C++",
+    href: "/articles/learning-to-code",
+    takeaway: "A practical note on learning C++ with the right discipline, intuition, and production mindset.",
+    tags: ["tech", "dsp", "audio", "c++"],
+  },
   {
     date: "August 26, 2026",
     title: "AES August '26 Seminar Summary",
@@ -366,5 +370,5 @@ to their own selves`,
     takeaway: "resolved streaming frame type validation errors by standardizing mergeable base delta mappings in core.",
     tags: ["archives", "langchain", "streaming"],
   },
-];
+].reverse();
 
