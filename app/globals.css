@@ -119,10 +119,6 @@
 
 /* Hard reset values to break through component styles */
 @layer base {
-  html {
-    font-size: 115% !important;
-  }
-
   html,
   body,
   body * {
