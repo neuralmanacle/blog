@@ -14,7 +14,7 @@ const navigationItems = [
   { label: "Experience", href: "/#experience" },
   { label: "Resources", href: "/#resources" },
   { label: "Newsletter", href: "/#newsletter" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/#about" },
 ]
 
 export default function Navbar({ className }: { className?: string }) {
@@ -29,26 +29,23 @@ export default function Navbar({ className }: { className?: string }) {
       if (event.key === "Escape") closeMenu()
     }
 
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = "hidden"
     window.addEventListener("keydown", onKey)
 
     return () => {
       window.removeEventListener("keydown", onKey)
-      document.body.style.overflow = previousOverflow
     }
   }, [menuOpen, closeMenu])
 
   return (
     <header className={cn("sticky top-0 z-50 w-full bg-[#0D0D0D]/70 backdrop-blur-md", className)}>
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 sm:px-8">
-        <Link href="/" className="inline-flex shrink-0 items-center rounded-full border border-neutral-700 bg-black/20 p-1.5 text-[#F5F1E8] transition-colors hover:border-[#F7B904] hover:text-[#F7B904] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7B904] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]" aria-label="Home">
+        <Link href="/" className="inline-flex shrink-0 items-center overflow-hidden rounded-full border border-neutral-700 bg-black/20 p-0 text-[#F5F1E8] transition-colors hover:border-transparent hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--rainbow-4)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]" aria-label="Home">
           <Image
             src="/logo.png"
             alt="Logo"
-            width={20}
-            height={20}
-            className="h-5 w-5 rounded-sm object-cover"
+            width={40}
+            height={40}
+            className="h-10 w-10 object-cover sm:h-11 sm:w-11"
             priority
           />
         </Link>
@@ -60,7 +57,7 @@ export default function Navbar({ className }: { className?: string }) {
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-              className="rounded-md px-3 py-2 text-[12px] font-medium uppercase tracking-[0.22em] text-neutral-300 transition-colors hover:text-[#F7B904] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7B904] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
+              className="rounded-md px-3 py-2 text-[12px] font-medium uppercase tracking-[0.22em] text-neutral-300 transition-colors hover:!text-[#0D0D0D] hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--rainbow-4)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
             >
               {item.label}
             </Link>
@@ -77,7 +74,7 @@ export default function Navbar({ className }: { className?: string }) {
             aria-expanded={menuOpen}
             aria-controls="mobile-nav-overlay"
             onClick={() => setMenuOpen((value) => !value)}
-            className="inline-flex items-center justify-center rounded-md border border-neutral-700 p-2 text-neutral-200 transition-colors hover:border-[#F7B904] hover:text-[#F7B904] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7B904] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] xl:hidden"
+            className="inline-flex items-center justify-center rounded-md border border-neutral-700 p-2 text-neutral-200 transition-colors hover:border-transparent hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--rainbow-4)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] xl:hidden"
           >
             {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -101,7 +98,7 @@ export default function Navbar({ className }: { className?: string }) {
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel={item.href.startsWith("http") ? "noreferrer" : undefined}
               onClick={closeMenu}
-              className="block rounded-md border border-neutral-800 px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] text-neutral-200 hover:border-[#F7B904] hover:text-[#F7B904]"
+              className="block rounded-md border border-neutral-800 px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] text-neutral-200 hover:border-transparent hover:!text-[#0D0D0D] hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%]"
             >
               {item.label}
             </Link>

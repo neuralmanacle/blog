@@ -2,7 +2,7 @@ export function FutureProjectCard() {
   return (
     <article className="rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-[0_0_0_1px_rgba(247,185,4,0.04)]">
       <div className="mb-5 flex items-center justify-between gap-3">
-        <span className="inline-flex items-center rounded-full border border-[#F7B904]/50 bg-[#F7B904]/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.28em] text-[#F7B904]">
+        <span className="inline-flex items-center rounded-full border border-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.28em] text-transparent">
           In Development
         </span>
         <span className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
@@ -14,13 +14,13 @@ export function FutureProjectCard() {
         Drizel — Granular Synthesizer
       </h3>
 
-      <div className="mt-4 text-sm text-muted-foreground">
-        <span className="font-medium uppercase tracking-[0.22em] text-[#F7B904]">Repository</span>
+      <div className="mt-4 text-sm text-gradient-secondary">
+        <span className="font-medium uppercase tracking-[0.22em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">Repository</span>
         <a
           href="https://github.com/neuralmanacle/drizel"
           target="_blank"
           rel="noreferrer"
-          className="mt-2 block break-all text-base text-foreground transition-colors hover:text-[#F7B904]"
+          className="mt-2 block break-all text-base text-foreground transition-colors hover:text-transparent hover:bg-[length:200%_100%] hover:bg-clip-text hover:[background-image:var(--site-accent)]"
         >
           https://github.com/neuralmanacle/drizel
         </a>

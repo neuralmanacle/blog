@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import * as React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -25,10 +26,20 @@ export function Hero({
         "bg-[#0D0D0D]/40"
       )}
     >
-      <div className="mx-auto max-w-5xl">
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <Image
+          src="/logo.svg"
+          alt=""
+          fill
+          className="h-full w-full scale-150 object-contain object-center opacity-10 blur-3xl saturate-150"
+          priority
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-5xl">
         <div className="max-w-4xl">
           {tagline && (
-            <p className="text-xs uppercase tracking-[0.32em] text-muted-foreground italic">{tagline}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-gradient-secondary italic">{tagline}</p>
           )}
 
           <h1
@@ -38,21 +49,17 @@ export function Hero({
             {title}
           </h1>
 
-          <p className="mt-4 text-sm uppercase tracking-[0.28em] text-[#F7B904]">
-            in a synthetic dream
-          </p>
-
-          <blockquote className="mt-8 max-w-2xl border-l border-[#F7B904]/60 pl-4 text-base leading-8 text-neutral-300 sm:text-lg">
+          <blockquote className="mt-8 max-w-2xl border-l border-transparent pl-4 text-base leading-8 text-neutral-300 sm:text-lg" style={{ borderImage: 'var(--site-accent) 1' }}>
             {description}
           </blockquote>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button asChild className="h-11 rounded-lg border border-[#F7B904] bg-[#F7B904] px-6 text-sm font-semibold text-[#0D0D0D] hover:bg-[#f8c12a]">
+            <Button asChild className="h-11 rounded-lg border border-transparent bg-[length:200%_200%] px-6 text-sm font-semibold text-[#0D0D0D] [background-image:var(--site-accent)] hover:brightness-110">
               <Link href={primaryCta.href}>{primaryCta.label === "Explore Ideas" ? "Explore Projects" : primaryCta.label}</Link>
             </Button>
 
             {secondaryCta && (
-              <Button asChild variant="outline" className="h-11 rounded-lg border border-neutral-700 bg-transparent px-6 text-sm font-semibold text-[#F7B904] hover:border-[#F7B904] hover:bg-[#F7B904]/10 hover:text-[#f8c12a]">
+              <Button asChild variant="outline" className="h-11 rounded-lg border border-neutral-700 bg-transparent px-6 text-sm font-semibold text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] hover:border-transparent hover:bg-[length:200%_100%] hover:[background-image:var(--site-accent)] hover:text-[#0D0D0D]">
                 <Link href={secondaryCta.href}>{secondaryCta.label === "Read Field Notes" ? "Read Field Notes" : secondaryCta.label}</Link>
               </Button>
             )}

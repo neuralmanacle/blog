@@ -25,7 +25,7 @@ function ThemeToggle() {
     <button
       aria-label="Toggle theme"
       onClick={cycleTheme}
-      className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-neutral-100 hover:text-[#e3b50f] text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:hover:text-[#e3b50f] dark:text-white transition-colors duration-300"
+      className="inline-flex items-center justify-center rounded border px-2 py-1 text-sm bg-transparent border-neutral-300 hover:bg-[length:200%_100%] hover:[background-image:var(--site-accent)] hover:text-[#0D0D0D] text-neutral-700 dark:border-neutral-700 dark:hover:bg-white/3 dark:hover:text-transparent dark:hover:bg-clip-text dark:hover:[background-image:var(--site-accent)] dark:text-white transition-colors duration-300"
       title={`Theme: ${theme ?? 'system'}`}
     >
       <Icon className="h-4 w-4" />

@@ -15,13 +15,13 @@
   --secondary-foreground: var(--foreground);
   --muted: oklch(0.94 0.003 80);
   --muted-foreground: oklch(0.55 0.003 80);
-  --accent: oklch(0.94 0.003 80);
+  --accent: var(--site-accent);
   --accent-foreground: var(--foreground);
   --destructive: oklch(0.55 0.2 25);
   --destructive-foreground: oklch(0.98 0 0);
   --border: var(--foreground);
   --input: var(--foreground);
-  --ring: var(--foreground);
+  --ring: #f70478;
   --radius: 0.75rem;
 
   /* Modern light mode coding scheme (cohesive slate-blue tone base) */
@@ -35,13 +35,16 @@
   --code-literal: oklch(0.52 0.16 300);
   --code-comment: oklch(0.62 0.01 240);
 
-  /* Rainbow flow animation colors (vibrant for light mode) */
-  --rainbow-1: #e3b50f;
-  --rainbow-2: #e3b50f;
-  --rainbow-3: #e3b50f;
-  --rainbow-4: #e3b50f;
-  --rainbow-5: #e3b50f;
-  --rainbow-6: #e3b50f;
+  /* Palette tuned to the provided earthy pink / plum / burgundy family */
+  --rainbow-1: #f70478;
+  --rainbow-2: #f83448;
+  --rainbow-3: #977104;
+  --rainbow-4: #9d55a6;
+  --rainbow-5: #930513;
+  --rainbow-6: #547c64;
+
+  --site-accent: linear-gradient(135deg, var(--rainbow-1) 0%, var(--rainbow-2) 18%, var(--rainbow-3) 36%, var(--rainbow-4) 52%, var(--rainbow-5) 70%, var(--rainbow-6) 100%);
+  --site-accent-solid: #9d55a6;
 }
 
 .dark {
@@ -61,7 +64,7 @@
   --accent-foreground: var(--foreground);
   --border: #2A2A2A;
   --input: #2A2A2A;
-  --ring: #F7B904;
+  --ring: #ff4fb6;
 
   /* Modern dark mode coding scheme (curated dark sage-olive tint) */
   --code-bg: #242424;
@@ -74,13 +77,15 @@
   --code-literal: #B98BE3;
   --code-comment: #929292;
 
-  /* Rainbow flow animation colors (original pastel for dark mode) */
-  --rainbow-1: #e3b50f;
-  --rainbow-2: #e3b50f;
-  --rainbow-3: #e3b50f;
-  --rainbow-4: #e3b50f;
-  --rainbow-5: #e3b50f;
-  --rainbow-6: #e3b50f;
+  /* Rainbow flow animation colors (dark-mode version of the brand palette) */
+  --rainbow-1: #f70478;
+  --rainbow-2: #f83448;
+  --rainbow-3: #977104;
+  --rainbow-4: #9d55a6;
+  --rainbow-5: #930513;
+  --rainbow-6: #547c64;
+
+  --site-accent: linear-gradient(135deg, var(--rainbow-1) 0%, var(--rainbow-2) 18%, var(--rainbow-3) 36%, var(--rainbow-4) 52%, var(--rainbow-5) 70%, var(--rainbow-6) 100%);
 }
 
 @theme inline {
@@ -183,7 +188,12 @@
   code span.text-red-400,
   pre .text-red-400,
   code .text-red-400 {
-    color: var(--code-keyword) !important;
+    color: transparent !important;
+    background-image: var(--site-accent) !important;
+    background-size: 200% 100% !important;
+    background-repeat: no-repeat !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
   }
   
   pre span.text-cyan-400,
@@ -233,14 +243,98 @@
   }
 }
 
+@layer utilities {
+  .text-gradient-secondary {
+    color: transparent;
+    background-image: var(--site-accent);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .animate-marquee {
+    animation: marquee-scroll 24s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes rainbow-flow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+@media (hover: hover) {
+  a:hover,
+  button:hover,
+  [role="button"]:hover,
+  .brand-accent:hover {
+    color: var(--rainbow-1);
+    border-color: var(--rainbow-1);
+    background-color: color-mix(in srgb, var(--rainbow-1) 12%, transparent);
+  }
+
+  a:nth-of-type(6n + 2):hover,
+  button:nth-of-type(6n + 2):hover,
+  [role="button"]:nth-of-type(6n + 2):hover,
+  .brand-accent:nth-of-type(6n + 2):hover {
+    color: var(--rainbow-2);
+    border-color: var(--rainbow-2);
+    background-color: color-mix(in srgb, var(--rainbow-2) 12%, transparent);
+  }
+
+  a:nth-of-type(6n + 3):hover,
+  button:nth-of-type(6n + 3):hover,
+  [role="button"]:nth-of-type(6n + 3):hover,
+  .brand-accent:nth-of-type(6n + 3):hover {
+    color: var(--rainbow-3);
+    border-color: var(--rainbow-3);
+    background-color: color-mix(in srgb, var(--rainbow-3) 12%, transparent);
+  }
+
+  a:nth-of-type(6n + 4):hover,
+  button:nth-of-type(6n + 4):hover,
+  [role="button"]:nth-of-type(6n + 4):hover,
+  .brand-accent:nth-of-type(6n + 4):hover {
+    color: var(--rainbow-4);
+    border-color: var(--rainbow-4);
+    background-color: color-mix(in srgb, var(--rainbow-4) 12%, transparent);
+  }
+
+  a:nth-of-type(6n + 5):hover,
+  button:nth-of-type(6n + 5):hover,
+  [role="button"]:nth-of-type(6n + 5):hover,
+  .brand-accent:nth-of-type(6n + 5):hover {
+    color: var(--rainbow-5);
+    border-color: var(--rainbow-5);
+    background-color: color-mix(in srgb, var(--rainbow-5) 12%, transparent);
+  }
+
+  a:nth-of-type(6n + 0):hover,
+  button:nth-of-type(6n + 0):hover,
+  [role="button"]:nth-of-type(6n + 0):hover,
+  .brand-accent:nth-of-type(6n + 0):hover {
+    color: var(--rainbow-6);
+    border-color: var(--rainbow-6);
+    background-color: color-mix(in srgb, var(--rainbow-6) 12%, transparent);
+  }
+}
+
 .animate-rainbow {
-  color: #e3b50f;
+  color: var(--rainbow-4);
   display: inline-block;
 }
 

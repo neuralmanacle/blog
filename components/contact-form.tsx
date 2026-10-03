@@ -106,7 +106,7 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={(e) => handleChange("name", e.target.value)}
                   disabled={isDisabled}
-                  className="w-full rounded-md border border-neutral-200 bg-transparent px-3 py-2 text-sm text-neutral-800 placeholder:text-neutral-400 focus:border-[#F7B904] focus:outline-none focus:ring-2 focus:ring-[#F7B904]/30 dark:border-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
+                  className="w-full rounded-md border border-neutral-200 bg-transparent px-3 py-2 text-sm text-neutral-800 placeholder:text-neutral-400 focus:border-[var(--rainbow-4)] focus:outline-none focus:ring-2 focus:ring-[var(--rainbow-4)]/30 dark:border-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
                 />
               </div>
 
@@ -123,7 +123,7 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   disabled={isDisabled}
-                  className="w-full rounded-md border border-neutral-200 bg-transparent px-3 py-2 text-sm text-neutral-800 placeholder:text-neutral-400 focus:border-[#F7B904] focus:outline-none focus:ring-2 focus:ring-[#F7B904]/30 dark:border-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
+                  className="w-full rounded-md border border-neutral-200 bg-transparent px-3 py-2 text-sm text-neutral-800 placeholder:text-neutral-400 focus:border-[var(--rainbow-4)] focus:outline-none focus:ring-2 focus:ring-[var(--rainbow-4)]/30 dark:border-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
                 />
               </div>
 
@@ -139,7 +139,7 @@ export default function ContactForm() {
                   value={formData.message}
                   onChange={(e) => handleChange("message", e.target.value)}
                   disabled={isDisabled}
-                  className="w-full resize-none rounded-md border border-neutral-200 bg-transparent px-3 py-2 text-sm text-neutral-800 placeholder:text-neutral-400 focus:border-[#F7B904] focus:outline-none focus:ring-2 focus:ring-[#F7B904]/30 dark:border-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
+                  className="w-full resize-none rounded-md border border-neutral-200 bg-transparent px-3 py-2 text-sm text-neutral-800 placeholder:text-neutral-400 focus:border-[var(--rainbow-4)] focus:outline-none focus:ring-2 focus:ring-[var(--rainbow-4)]/30 dark:border-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500"
                 />
               </div>
 
@@ -147,7 +147,7 @@ export default function ContactForm() {
                 {message ? (
                   <p className={cn(
                     "text-xs font-medium",
-                    status === "error" ? "text-rose-500" : "text-[#F7B904]"
+                    status === "error" ? "text-rose-500" : "text-[var(--rainbow-4)]"
                   )}>
                     {message}
                   </p>
@@ -157,10 +157,8 @@ export default function ContactForm() {
                   type="submit"
                   disabled={isDisabled}
                   className={cn(
-                    "inline-flex items-center justify-center rounded border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition-colors disabled:cursor-not-allowed disabled:opacity-60",
-                    isDisabled
-                      ? "border-neutral-300 bg-neutral-100 text-neutral-500 dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-500"
-                      : "border-[#F7B904] bg-[#F7B904] text-[#0D0D0D] hover:bg-[#f8c12a]"
+                    "inline-flex items-center justify-center rounded border border-transparent bg-[length:200%_200%] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#0D0D0D] [background-image:var(--site-accent)] transition-colors hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60",
+                    isDisabled && "opacity-60"
                   )}
                 >
                   {isDisabled ? "Sending..." : "Submit"}

@@ -80,7 +80,7 @@ export function NewsletterForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="h-11 w-full rounded-lg border border-[#F7B904] bg-[#F7B904] px-5 text-sm font-semibold text-[#0D0D0D] hover:bg-[#f8c12a] disabled:cursor-not-allowed disabled:opacity-60"
+            className="h-11 w-full rounded-lg border border-transparent bg-[length:200%_200%] px-5 text-sm font-semibold text-[#0D0D0D] [background-image:var(--site-accent)] hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? 'Subscribing...' : 'Subscribe'}
           </Button>
@@ -89,7 +89,7 @@ export function NewsletterForm() {
 
       <div id="newsletter-status" aria-live="polite" className="mt-4 min-h-5">
         {message ? (
-          <p className={status === 'error' ? 'text-sm text-rose-500' : 'text-sm text-[#F7B904]'}>{message}</p>
+          <p className={status === 'error' ? 'text-sm text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]' : 'text-sm text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]'}>{message}</p>
         ) : null}
       </div>
     </div>

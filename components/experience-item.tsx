@@ -1,7 +1,7 @@
 export function ExperienceItem() {
   return (
-    <div className="relative rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-[0_0_0_1px_rgba(247,185,4,0.06)] backdrop-blur-sm">
-      <div className="absolute left-6 top-7 h-2.5 w-2.5 rounded-full bg-[#F7B904] shadow-[0_0_18px_rgba(247,185,4,0.7)]" aria-hidden="true" />
+    <div className="relative rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-[0_0_0_1px_rgba(0,0,0,0.08)] backdrop-blur-sm">
+      <div className="absolute left-6 top-7 h-2.5 w-2.5 rounded-full bg-[length:200%_100%] [background-image:var(--site-accent)] shadow-[0_0_18px_rgba(0,0,0,0.22)]" aria-hidden="true" />
 
       <div className="pl-6">
         <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
@@ -22,11 +22,11 @@ export function ExperienceItem() {
           <li>Engineered C++ based music plugins for Digital Audio Workstations (DAWs) and seamlessly integrated them with Node.js-based user interfaces.</li>
         </ul>
 
-        <div className="mt-5 flex flex-wrap gap-2 text-[10px] uppercase tracking-[0.24em] text-[#F7B904]">
-          <span className="rounded-full border border-[#F7B904]/40 bg-[#F7B904]/10 px-2.5 py-1">C++</span>
-          <span className="rounded-full border border-[#F7B904]/40 bg-[#F7B904]/10 px-2.5 py-1">JavaScript</span>
-          <span className="rounded-full border border-[#F7B904]/40 bg-[#F7B904]/10 px-2.5 py-1">CI/CD</span>
-          <span className="rounded-full border border-[#F7B904]/40 bg-[#F7B904]/10 px-2.5 py-1">JUCE</span>
+        <div className="mt-5 flex flex-wrap gap-2 text-[10px] uppercase tracking-[0.24em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">
+          <span className="rounded-full border border-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] px-2.5 py-1 text-transparent">C++</span>
+          <span className="rounded-full border border-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] px-2.5 py-1 text-transparent">JavaScript</span>
+          <span className="rounded-full border border-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] px-2.5 py-1 text-transparent">CI/CD</span>
+          <span className="rounded-full border border-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] px-2.5 py-1 text-transparent">JUCE</span>
         </div>
 
         <p className="mt-5 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">

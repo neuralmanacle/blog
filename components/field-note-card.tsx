@@ -24,27 +24,27 @@ export function FieldNoteCard({
   return (
     <div className={cn("flex flex-col sm:flex-row gap-4 sm:gap-6 py-6 border-b border-border text-foreground")}>
       <div className="sm:w-20 shrink-0">
-        <span className="font-mono text-[#A66B00] dark:text-[#F7B904] text-sm tracking-wider">
+        <span className="font-mono text-sm tracking-wider text-gradient-secondary">
           {paddedNumber}
         </span>
       </div>
       <div className="flex-1 min-w-0">
-        <div className="flex flex-wrap gap-2 mb-3">
+        <div className="mb-3 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="text-xs text-foreground">
+            <Badge key={tag} variant="secondary" className="text-xs text-gradient-secondary">
               {tag}
             </Badge>
           ))}
         </div>
-        <h3 className="text-lg font-semibold mb-2 text-foreground">
+        <h3 className="mb-2 text-lg font-semibold text-foreground">
           <Link
             href={href}
-            className="transition-colors hover:text-[#F7B904]"
+            className="transition-colors hover:text-transparent hover:bg-[length:200%_100%] hover:bg-clip-text hover:[background-image:var(--site-accent)]"
           >
             {title}
           </Link>
         </h3>
-        <div className="font-mono text-xs text-muted-foreground tracking-wide">
+        <div className="font-mono text-xs tracking-wide text-gradient-secondary">
           {date} · {readingTime}
         </div>
       </div>

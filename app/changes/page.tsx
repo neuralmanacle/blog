@@ -76,7 +76,7 @@ export default function ChangesPage() {
 
                 {change.fixed && change.fixed.length > 0 && (
                   <div>
-                    <span className="inline-block text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-yellow-50 text-yellow-700 dark:bg-yellow-950/30 dark:text-yellow-400 rounded mb-2 font-mono">
+                    <span className="inline-block rounded mb-2 border border-transparent bg-[length:200%_100%] bg-clip-text px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-transparent [background-image:var(--site-accent)]">
                       Fixed
                     </span>
                     <ul className="list-disc list-inside space-y-1 text-sm text-neutral-600 dark:text-neutral-300 font-mono pl-1">

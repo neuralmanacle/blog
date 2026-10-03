@@ -13,7 +13,7 @@ export function SocialLinks({ onAction, className }: SocialLinksProps) {
   const handleClick = () => onAction?.()
 
   const linkCls = cn(
-    "inline-flex items-center justify-center rounded-md p-2 text-neutral-300 transition-colors hover:text-[#F7B904]",
+    "inline-flex items-center justify-center rounded-md p-2 text-neutral-300 transition-colors hover:text-transparent hover:bg-[length:200%_100%] hover:bg-clip-text hover:[background-image:var(--site-accent)]",
     className,
   )
 

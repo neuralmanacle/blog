@@ -57,7 +57,7 @@ export function NewsletterSignup({
           <div className="flex items-center gap-3 py-2 sm:py-3 animate-fade-in">
             <div
               className="flex items-center justify-center rounded-full size-8 sm:size-9 shrink-0"
-              style={{ backgroundColor: "#F7B904" }}
+              style={{ backgroundColor: "var(--rainbow-4)" }}
             >
               <Check className="size-4 sm:size-5 text-black" />
             </div>
@@ -85,14 +85,14 @@ export function NewsletterSignup({
               <Button
                 type="submit"
                 className="w-full sm:w-auto font-mono text-xs sm:text-sm uppercase tracking-wider text-black border border-neutral-900/20 dark:border-neutral-100/20 hover:opacity-90"
-                style={{ backgroundColor: "#F7B904" }}
+                style={{ backgroundColor: "var(--rainbow-4)" }}
               >
                 Subscribe
               </Button>
             </div>
 
             {error && (
-              <p className="font-mono text-xs text-rose-600 dark:text-rose-400 animate-fade-in">
+              <p className="font-mono text-xs text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] animate-fade-in">
                 {error}
               </p>
             )}

@@ -33,7 +33,7 @@ export function ProjectCard({
   return (
     <Card
       className={cn(
-        "group overflow-hidden rounded-lg border border-border bg-card text-card-foreground shadow-none transition-colors duration-300 hover:border-[#F7B904]"
+        "group overflow-hidden rounded-lg border border-border bg-card text-card-foreground shadow-none transition-colors duration-300 hover:border-transparent hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%]"
       )}
     >
       <CardContent className="p-0">
@@ -59,7 +59,7 @@ export function ProjectCard({
             <Badge
               key={tech}
               variant="secondary"
-              className="border-border bg-secondary text-[11px] font-normal text-foreground transition-colors duration-200 group-hover:border-[#F7B904]/50"
+              className="border-border bg-secondary text-[11px] font-normal text-foreground transition-colors duration-200 group-hover:border-transparent group-hover:text-[#0D0D0D] group-hover:[background-image:var(--site-accent)] group-hover:bg-[length:200%_100%]"
             >
               {tech}
             </Badge>
@@ -71,7 +71,7 @@ export function ProjectCard({
           asChild
           variant="outline"
           size="sm"
-          className="flex-1 transition-colors duration-200 hover:border-[#F7B904] hover:bg-[#F7B904]/10 hover:text-[#F7B904]"
+          className="flex-1 transition-colors duration-200 hover:border-transparent hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%]"
         >
           <a
             href={githubUrl}
@@ -88,7 +88,7 @@ export function ProjectCard({
             asChild
             variant="outline"
             size="sm"
-            className="flex-1 transition-colors duration-200 hover:border-[#F7B904] hover:bg-[#F7B904]/10 hover:text-[#F7B904]"
+            className="flex-1 transition-colors duration-200 hover:border-transparent hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%]"
           >
             <a
               href={projectUrl}

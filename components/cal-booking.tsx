@@ -11,7 +11,7 @@ export function CalBooking() {
         href="https://cal.com/neuralmanacle"
         target="_blank"
         rel="noreferrer"
-        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#F7B904] transition-colors hover:text-[#f8c12a]"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] transition-colors hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)]"
       >
         Schedule a conversation <span aria-hidden="true">→</span>
       </a>
