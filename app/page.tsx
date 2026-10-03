@@ -58,7 +58,7 @@ export default function Page() {
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">Experience</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#F2F2F2] sm:text-4xl">Experience</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Experience</h2>
           </div>
         </div>
         <ExperienceItem />
@@ -68,7 +68,7 @@ export default function Page() {
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">Project</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#F2F2F2] sm:text-4xl">Project</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Project</h2>
           </div>
         </div>
         <FutureProjectCard />
@@ -78,7 +78,7 @@ export default function Page() {
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">Reading</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#F2F2F2] sm:text-4xl">Currently Reading</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Currently Reading</h2>
           </div>
         </div>
 
@@ -97,7 +97,7 @@ export default function Page() {
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">Journal</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#F2F2F2] sm:text-4xl">Field Notes</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Field Notes</h2>
           </div>
         </div>
 
@@ -142,7 +142,7 @@ export default function Page() {
       <section id="resources" className="mx-auto max-w-5xl px-6 py-16 sm:px-8 sm:py-20">
         <div className="mb-8">
           <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">Resources</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#F2F2F2] sm:text-4xl">References and study notes</h2>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">References and study notes</h2>
         </div>
         <div className="rounded-2xl border border-neutral-800 bg-[#0f0f0f]/80 p-5 sm:p-6">
           <p className="text-[10px] uppercase tracking-[0.28em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">Theory</p>
@@ -160,7 +160,7 @@ export default function Page() {
       <section id="newsletter" className="mx-auto max-w-5xl px-6 py-16 sm:px-8 sm:py-20">
         <div className="mb-8">
           <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">Newsletter</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#F2F2F2] sm:text-4xl">Neural Manacle Dispatch</h2>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Neural Manacle Dispatch</h2>
         </div>
         <NewsletterForm />
       </section>

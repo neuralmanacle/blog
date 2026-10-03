@@ -57,7 +57,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 html { font-family: var(--font-mono); }
         `}</style>
       </head>
-      <body className="min-h-dvh bg-[#0D0D0D] text-[#F2F2F2] antialiased" suppressHydrationWarning={true}>
+      <body className="min-h-dvh bg-background text-foreground antialiased" suppressHydrationWarning={true}>
         <SupabaseDataProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
             <SpacetimeBackground />

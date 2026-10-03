@@ -32,7 +32,7 @@ export function AboutProfile({ id = "about" }: { id?: string }) {
         </div>
 
         <div>
-          <h2 id="about-heading" className="text-4xl font-semibold tracking-tight text-[#F2F2F2] sm:text-5xl">
+          <h2 id="about-heading" className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Arjun · əɾ.d͡ʒʊn
           </h2>
 
