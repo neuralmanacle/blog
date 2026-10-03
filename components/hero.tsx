@@ -22,7 +22,7 @@ export function Hero({
     <section
       aria-labelledby="hero-heading"
       className={cn(
-        "relative w-full overflow-hidden border-b border-neutral-800 px-6 pb-20 pt-16 sm:px-8 sm:pb-24 sm:pt-20",
+        "relative w-full overflow-hidden border-b border-neutral-800 pb-20 pt-16 sm:pb-24 sm:pt-20",
         "bg-[#0D0D0D]/40"
       )}
     >
@@ -36,7 +36,7 @@ export function Hero({
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8">
         <div className="max-w-4xl">
           {tagline && (
             <p className="text-xs uppercase tracking-[0.32em] text-gradient-secondary italic">{tagline}</p>

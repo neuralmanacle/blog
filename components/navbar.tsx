@@ -50,14 +50,14 @@ export default function Navbar({ className }: { className?: string }) {
           />
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-1 xl:flex">
+        <nav aria-label="Main navigation" className="hidden shrink-0 items-center gap-0 xl:flex">
           {navigationItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-              className="rounded-md px-3 py-2 text-[12px] font-medium uppercase tracking-[0.22em] text-neutral-300 transition-colors hover:!text-[#0D0D0D] hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--rainbow-4)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
+              className="whitespace-nowrap rounded-md px-2 py-2 text-[12px] font-medium uppercase tracking-[0.14em] text-neutral-300 transition-colors hover:!text-[#0D0D0D] hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--rainbow-4)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
             >
               {item.label}
             </Link>

@@ -18,7 +18,7 @@ export function SocialLinks({ onAction, className }: SocialLinksProps) {
   )
 
   return (
-    <div className="flex flex-wrap items-center gap-1">
+    <div className="flex shrink-0 flex-nowrap items-center gap-1">
       <Link href="mailto:neuralmanacle@gmail.com" onClick={handleClick} className={linkCls} aria-label="Email" title="Email">
         <Mail className="h-4 w-4" />
       </Link>
