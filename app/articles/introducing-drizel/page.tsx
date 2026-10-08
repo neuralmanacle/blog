@@ -13,7 +13,7 @@ export default function ArticlePage() {
             <div className="space-y-6">
             <Link
               href="/"
-              className="text-xs text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors font-mono"
+              className="text-xs font-mono text-emerald-300 underline decoration-emerald-400/50 underline-offset-4 transition-colors hover:text-emerald-100 hover:decoration-emerald-200"
             >
               ← Back
             </Link>
@@ -48,16 +48,16 @@ export default function ArticlePage() {
                 I had heard many songs earlier along the years where a granular synthesizer was used. A minimal definition of a granular synthesizer would be
               </p>
 
-              <p>
+              <blockquote className="border-l-4 border-emerald-400/70 bg-emerald-950/30 px-6 py-4 text-neutral-200 not-italic">
                 A granular synthesizer plays a sound as many tiny overlapping fragments, called grains, typically 1-100 ms long. Each grain is a short slice of a sample shaped by a smooth window (fade in and out) so it doesn't click. Grains are triggered rapidly, and each can have its own start position, pitch, and length. Summed together, they form a continuous texture whose character comes from controlling those parameters: where in the sample grains are taken from, how dense they are, and how much they vary.
-              </p>
+              </blockquote>
 
               <p>
                 I'd been reading the lecture notes from George Mason University called 'Computational Music Synthesis' and C++ too, which would lay the basic foundation that would be required to build more blocks of this objective.
               </p>
 
               <p>
-                I aim to build a custom granular synthesizer where I'll be able to add features and technologies as it evolves through the development. I named it 'Drizel,' as the sound synthesized by a granular synthesizer sounds like a drizzle of rain. Very Subjective xD. A log of rambutan is a bit open, as I wanted a red fruit on a light green background. Again, creativity.
+                I aim to build a custom granular synthesizer where I'll be able to add features and technologies as it evolves through the development. I named it 'Drizel,' as the sound synthesized by a granular synthesizer sounds like a drizzle of rain. Very Subjective xD. A logo of rambutan is a bit open, as I wanted a red fruit on a light green background. Again, creativity.
               </p>
 
               <p>
@@ -65,7 +65,7 @@ export default function ArticlePage() {
               </p>
 
               <p>
-                The code is licensed and open-sourced on GitHub. <a href="https://github.com/neuralmanacle/drizel" target="_blank" rel="noreferrer">https://github.com/neuralmanacle/drizel</a>
+                The code is licensed and open-sourced on GitHub. <a className="font-semibold text-emerald-300 underline decoration-emerald-400/60 underline-offset-4 transition-colors hover:text-emerald-100 hover:decoration-emerald-200" href="https://github.com/neuralmanacle/drizel" target="_blank" rel="noreferrer">https://github.com/neuralmanacle/drizel</a>
               </p>
 
               <p>
@@ -76,26 +76,26 @@ export default function ArticlePage() {
                 The major milestones are
               </p>
 
-              <ol className="list-decimal space-y-2 pl-6">
-                <li>Set up the project. Create a JUCE and Projucer project, get a clean build, and add one test. This is a good place to explain why you chose C++ and building from scratch.</li>
+              <ol className="list-decimal space-y-2 pl-6 marker:text-emerald-300">
+                <li><strong className="text-emerald-300">Set up the project:</strong> a clean <span className="font-semibold text-emerald-200">JUCE and Projucer</span> build with a first <span className="font-semibold text-emerald-200">automated test</span>.</li>
 
-                <li>Load a sound. Read a WAV file into a buffer and write it back out. The blog angle is what audio actually is in memory.</li>
+                <li><strong className="text-emerald-300">Load a sound:</strong> read a <span className="font-semibold text-emerald-200">WAV file</span> into memory and write it back out.</li>
 
-                <li>Build the small pieces. Make window shapes and interpolation, and show how each one changes the sound. Plots and audio clips of aliasing and clicks work well here.</li>
+                <li><strong className="text-emerald-300">Build the small pieces:</strong> <span className="font-semibold text-emerald-200">window shapes</span> and <span className="font-semibold text-emerald-200">interpolation</span>, and how each changes the sound.</li>
 
-                <li>Play one grain. Take a short slice, fade it in and out, and change its pitch. The first audible result makes a good post.</li>
+                <li><strong className="text-emerald-300">Play one grain:</strong> a short, faded slice at a chosen <span className="font-semibold text-emerald-200">pitch</span>.</li>
 
-                <li>Play many games. Add a scheduler that triggers grains at a chosen density, with random variation, and mix them together. This is where the sound turns into a texture.</li>
+                <li><strong className="text-emerald-300">Play many grains:</strong> a <span className="font-semibold text-emerald-200">scheduler</span> that triggers <span className="font-semibold text-emerald-200">overlapping grains</span> with random variation.</li>
 
-                <li>Run it live. Move the engine into a real-time audio callback. Cover the rules for the audio thread: no allocation, no locks, and measuring CPU cost.</li>
+                <li><strong className="text-emerald-300">Run it live:</strong> move the engine into a <span className="font-semibold text-emerald-200">real-time audio callback</span>.</li>
 
-                <li>Add modulation. Move position and pitch with LFOs and random walks, so the sound evolves on its own.</li>
+                <li><strong className="text-emerald-300">Add modulation:</strong> <span className="font-semibold text-emerald-200">LFOs</span> and <span className="font-semibold text-emerald-200">random walks</span> so the sound evolves.</li>
 
-                <li>Make it playable. Add MIDI input, an envelope, and presets.</li>
+                <li><strong className="text-emerald-300">Make it playable:</strong> <span className="font-semibold text-emerald-200">MIDI input</span>, an envelope, and presets.</li>
 
-                <li>Build the interface. Add a waveform display, controls, and a plugin build.</li>
+                <li><strong className="text-emerald-300">Build the interface:</strong> waveform display, controls, and a <span className="font-semibold text-emerald-200">plugin build</span>.</li>
 
-                <li>Add AI control. Have a language model steer position and density slowly in the background. Cover the latency limits, the lookahead trick, and what happens when the network drops.</li>
+                <li><strong className="text-emerald-300">Add AI control:</strong> a <span className="font-semibold text-emerald-200">language model</span> steering position and density slowly in the background.</li>
               </ol>
             </div>
 
@@ -104,7 +104,7 @@ export default function ArticlePage() {
             <div className="pt-12 border-t border-neutral-200 dark:border-neutral-800">
               <Link
                 href="/"
-                className="text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors font-mono"
+                className="text-sm font-mono text-emerald-300 underline decoration-emerald-400/50 underline-offset-4 transition-colors hover:text-emerald-100 hover:decoration-emerald-200"
               >
                 ← Back to Index
               </Link>

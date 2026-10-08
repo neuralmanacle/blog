@@ -27,6 +27,7 @@ export function SpacetimeBackground() {
     renderer.domElement.style.width = '100%'
     renderer.domElement.style.height = '100%'
     renderer.domElement.style.pointerEvents = 'none'
+    renderer.domElement.className = 'spacetime-background__canvas'
     renderer.domElement.style.filter = 'blur(8px) saturate(1.25) brightness(0.9)'
     renderer.domElement.style.opacity = '0.9'
     renderer.domElement.style.transform = 'scale(1.08)'
@@ -171,14 +172,13 @@ export function SpacetimeBackground() {
   }, [])
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="spacetime-background" aria-hidden="true">
       <div
         ref={mountRef}
-        aria-hidden="true"
-        className="absolute inset-0"
+        className="spacetime-background__scene"
       />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(3,5,5,0.12),_rgba(3,5,5,0.3)_38%,_rgba(3,5,5,0.62)_82%)]" />
-      <div className="absolute inset-0 backdrop-blur-[3px]" />
+      <div className="spacetime-background__shade" />
+      <div className="spacetime-background__blur" />
     </div>
   )
 }

@@ -296,6 +296,46 @@ h6,
   text-shadow: 0 0 18px rgba(74, 222, 128, 0.14);
 }
 
+.spacetime-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.spacetime-background__scene,
+.spacetime-background__canvas,
+.spacetime-background__shade,
+.spacetime-background__blur {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.spacetime-background__scene,
+.spacetime-background__canvas {
+  display: block;
+  pointer-events: none;
+}
+
+.spacetime-background__canvas {
+  z-index: 0;
+}
+
+.spacetime-background__shade {
+  z-index: 1;
+  background: radial-gradient(circle at center, rgba(3, 5, 5, 0.12), rgba(3, 5, 5, 0.3) 38%, rgba(3, 5, 5, 0.62) 82%);
+}
+
+.spacetime-background__blur {
+  z-index: 2;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
 @keyframes marquee-scroll {
   0% {
     transform: translateX(0);
