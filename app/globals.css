@@ -135,6 +135,30 @@
     }
   }
 
+  @layer utilities {
+    .text-sm {
+      font-size: 1rem !important;
+      line-height: 1.5rem !important;
+    }
+
+    .text-xs {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+
+    @media (min-width: 768px) {
+      .text-sm {
+        font-size: 1.125rem !important;
+        line-height: 1.75rem !important;
+      }
+
+      .text-xs {
+        font-size: 1rem !important;
+        line-height: 1.5rem !important;
+      }
+    }
+  }
+
   *, *::before, *::after {
     box-shadow: none !important;
   }
@@ -142,12 +166,12 @@
     background-color: var(--background) !important;
     color: var(--foreground) !important;
   }
-  
+
   /* Widen the whole UI container by 30% (from 42rem / 672px to 54.6rem / 874px) */
   .max-w-2xl {
     max-width: 54.6rem !important;
   }
-  
+
   /* Rozha One Sanskrit font styling */
   .font-sanskrit {
     font-family: 'Rozha One', serif;
@@ -256,6 +280,20 @@
   .animate-marquee:hover {
     animation-play-state: paused;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.article-header {
+  background-image: linear-gradient(135deg, #d1fae5 0%, #86efac 18%, #4ade80 42%, #bbf7d0 68%, #a7f3d0 100%) !important;
+  color: transparent !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  text-shadow: 0 0 18px rgba(74, 222, 128, 0.14);
 }
 
 @keyframes marquee-scroll {

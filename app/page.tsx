@@ -51,7 +51,7 @@ export default function Page() {
         tagline="in a synthetic dream"
         description="I document the systems, ideas, and experiments behind DSP, C++, JUCE, computational music synthesis, and audio software engineering in public."
         primaryCta={{ label: "Explore Projects", href: "#projects" }}
-        secondaryCta={{ label: "Read Field Notes", href: "#field-notes" }}
+        secondaryCta={{ label: "Read Articles", href: "#field-notes" }}
       />
 
       <section id="experience" className="mx-auto max-w-5xl px-6 py-16 sm:px-8 sm:py-20">
@@ -97,7 +97,7 @@ export default function Page() {
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)]">Journal</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Field Notes</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Articles</h2>
           </div>
         </div>
 

@@ -60,7 +60,7 @@ export function Hero({
 
             {secondaryCta && (
               <Button asChild variant="outline" className="h-11 rounded-lg border border-neutral-700 bg-transparent px-6 text-sm font-semibold text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] hover:border-transparent hover:bg-[length:200%_100%] hover:[background-image:var(--site-accent)] hover:text-[#0D0D0D]">
-                <Link href={secondaryCta.href}>{secondaryCta.label === "Read Field Notes" ? "Read Field Notes" : secondaryCta.label}</Link>
+                <Link href={secondaryCta.href}>{secondaryCta.label}</Link>
               </Button>
             )}
           </div>

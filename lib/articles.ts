@@ -68,6 +68,13 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "October 8, 2026",
+    title: "Introducing Drizel",
+    href: "/articles/introducing-drizel",
+    takeaway: "A granular synthesizer project built in JUCE, exploring DSP, sample processing, and a live AI modulation roadmap.",
+    tags: ["tech", "dsp", "juce", "audio", "c++"],
+  },
+  {
     date: "September 25, 2026",
     title: "Learning C++",
     href: "/articles/learning-to-code",

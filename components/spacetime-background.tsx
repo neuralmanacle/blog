@@ -2,182 +2,166 @@
 
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 export function SpacetimeBackground() {
   const mountRef = useRef<HTMLDivElement | null>(null)
   const animationRef = useRef<number | null>(null)
-  const sceneRef = useRef<THREE.Scene | null>(null)
-  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null)
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
-  const fabricRef = useRef<THREE.Group | null>(null)
-  const frameState = useRef({
-    width: 0,
-    height: 0,
-    reducedMotion: false,
-  })
 
   useEffect(() => {
     const mount = mountRef.current
     if (!mount) return
 
     const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updateReducedMotion = () => {
-      frameState.current.reducedMotion = reduceMotionQuery.matches
-    }
-    updateReducedMotion()
-    reduceMotionQuery.addEventListener?.('change', updateReducedMotion)
-
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color('#0D0D0D')
-    sceneRef.current = scene
-
-    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100)
-    camera.position.set(0, 0.3, 12)
-    cameraRef.current = camera
+    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100)
+    camera.position.set(0, 0.3, 9.8)
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' })
     renderer.setClearColor(0x000000, 0)
-    rendererRef.current = renderer
-    renderer.domElement.style.filter = 'blur(14px) saturate(1.25) brightness(1.08)'
-    renderer.domElement.style.opacity = '0.8'
+    renderer.outputColorSpace = THREE.SRGBColorSpace
+    renderer.toneMapping = THREE.ACESFilmicToneMapping
+    renderer.toneMappingExposure = 1.15
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6))
+    renderer.domElement.style.display = 'block'
+    renderer.domElement.style.width = '100%'
+    renderer.domElement.style.height = '100%'
+    renderer.domElement.style.pointerEvents = 'none'
+    renderer.domElement.style.filter = 'blur(8px) saturate(1.25) brightness(0.9)'
+    renderer.domElement.style.opacity = '0.9'
     renderer.domElement.style.transform = 'scale(1.08)'
-    renderer.domElement.style.transformOrigin = 'center center'
     mount.appendChild(renderer.domElement)
+
+    const ambient = new THREE.AmbientLight(0xffffff, 1.5)
+    scene.add(ambient)
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.2)
+    keyLight.position.set(-4, 5, 8)
+    scene.add(keyLight)
+
+    let modelGroup: THREE.Group | null = null
+    const artGroup = new THREE.Group()
+    scene.add(artGroup)
+
+    const loadModel = async () => {
+      const loader = new GLTFLoader()
+      const result = await loader.loadAsync('/spiral-background/assets/spiral-lite.glb')
+      modelGroup = result.scene
+      modelGroup.traverse((child) => {
+        if ('isMesh' in child && child.isMesh) {
+          child.castShadow = false
+          child.receiveShadow = false
+        }
+      })
+
+      const box = new THREE.Box3().setFromObject(modelGroup)
+      const center = box.getCenter(new THREE.Vector3())
+      modelGroup.position.sub(center)
+      modelGroup.rotation.set(-0.7, 0.5, 0.2)
+      artGroup.add(modelGroup)
+      renderScene()
+    }
 
     const group = new THREE.Group()
     scene.add(group)
-    fabricRef.current = group
 
-    const lineMaterial = new THREE.LineBasicMaterial({
-      color: 0xf2f2f2,
-      transparent: true,
-      opacity: 0.28,
-    })
-
-    const accentMaterial = new THREE.LineBasicMaterial({
-      color: 0xf7b904,
-      transparent: true,
-      opacity: 0.2,
-    })
-
-    const createGrid = (segments: number, yOffset: number, zOffset: number, pitch: number, material: THREE.LineBasicMaterial) => {
-      const geometry = new THREE.BufferGeometry()
-      const positions: number[] = []
-
-      for (let i = -segments; i <= segments; i += 1) {
-        const x = i * pitch
-        const xWave = Math.sin(i * 0.35) * 0.26
-        const zWave = Math.cos(i * 0.42) * 0.22
-
-        positions.push(x + xWave, -2.5 + yOffset, zOffset + zWave)
-        positions.push(x + xWave, 2.5 + yOffset, zOffset + zWave)
-
-        const y = i * pitch
-        const yWave = Math.sin(i * 0.4) * 0.3
-        const zOffsetWave = Math.cos(i * 0.5) * 0.25
-
-        positions.push(-2.5 + xWave, y + yWave, zOffsetWave)
-        positions.push(2.5 + xWave, y + yWave, zOffsetWave)
-      }
-
-      geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3))
-      return new THREE.LineSegments(geometry, material)
-    }
-
-    const gridA = createGrid(22, 0.65, -1.4, 0.42, lineMaterial)
-    const gridB = createGrid(18, -0.9, 1.0, 0.5, accentMaterial)
-    const gridC = createGrid(12, 0.2, -2.4, 0.7, lineMaterial)
-
-    const warpCurve = new THREE.Mesh(
-      new THREE.TorusKnotGeometry(2.4, 0.09, 160, 24, 2, 3),
-      new THREE.MeshBasicMaterial({
-        color: 0xf2f2f2,
+    const createBackdrop = () => {
+      const geometry = new THREE.IcosahedronGeometry(4.8, 1)
+      const material = new THREE.MeshBasicMaterial({
+        color: 0x05120d,
         transparent: true,
         opacity: 0.12,
         wireframe: true,
       })
-    )
+      const mesh = new THREE.Mesh(geometry, material)
+      mesh.rotation.set(0.6, 1.1, 0.3)
+      group.add(mesh)
+      return mesh
+    }
 
-    warpCurve.rotation.x = Math.PI / 2.3
-    warpCurve.rotation.y = 0.7
-    warpCurve.position.z = -0.8
-
-    group.add(gridA, gridB, gridC, warpCurve)
+    const backdrop = createBackdrop()
 
     const handleResize = () => {
-      const { innerWidth, innerHeight } = window
-      const width = Math.max(innerWidth, 320)
-      const height = Math.max(innerHeight, 240)
-      const isSmallViewport = width < 768
-      const pixelRatioLimit = isSmallViewport ? 1.4 : 1.8
-
-      frameState.current.width = width
-      frameState.current.height = height
-
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, pixelRatioLimit))
+      const width = window.innerWidth
+      const height = window.innerHeight
+      renderer.setSize(width, height, false)
       camera.aspect = width / height
       camera.updateProjectionMatrix()
-      renderer.setSize(width, height, false)
+      const halfViewHeight = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z
+      const halfViewWidth = halfViewHeight * camera.aspect
+      const scale = Math.min(1.15, Math.max(0.7, width / 1400))
+      group.scale.setScalar(scale)
+      artGroup.position.set(halfViewWidth * 0.42, camera.position.y - halfViewHeight * 0.38, 0)
+      artGroup.scale.setScalar(scale)
+      renderScene()
+    }
 
-      const viewportScale = Math.min(1.2, Math.max(0.7, width / 1400))
-      const cameraDistance = isSmallViewport ? 11.8 : 12.4
-      camera.position.set(0, 0.3, cameraDistance)
-      group.scale.setScalar(viewportScale)
+    const renderScene = () => {
+      if (!reduceMotionQuery.matches) {
+        const t = performance.now() * 0.0005
+        const breathe = 1 + Math.sin(t * 3.2) * 0.08
+        const scale = Math.min(1.15, Math.max(0.7, window.innerWidth / 1400)) * breathe
+        const halfViewHeight = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z
+        const halfViewWidth = halfViewHeight * camera.aspect
+
+        group.rotation.x = -0.65 + Math.sin(t * 1.2) * 0.12
+        group.rotation.y = t * 0.5
+        group.rotation.z = Math.sin(t * 0.9) * 0.08
+        group.position.y = Math.sin(t * 1.7) * 0.2
+        group.scale.setScalar(scale)
+        artGroup.rotation.set(-0.7 + Math.sin(t * 1.2) * 0.08, t * 0.5, 0.2 + Math.sin(t * 0.9) * 0.05)
+        artGroup.position.set(
+          halfViewWidth * 0.42,
+          camera.position.y - halfViewHeight * 0.38 + Math.sin(t * 1.7) * 0.12,
+          0
+        )
+        artGroup.scale.setScalar(scale * breathe)
+        backdrop.rotation.x += 0.0012
+        backdrop.rotation.y += 0.0014
+      }
+      renderer.render(scene, camera)
     }
 
     const animate = () => {
       animationRef.current = requestAnimationFrame(animate)
-
-      if (frameState.current.reducedMotion) {
-        group.rotation.x = -0.68
-        group.rotation.y = 0.1
-        group.position.y = 0
-        renderer.render(scene, camera)
-        return
-      }
-
-      const t = performance.now() * 0.00045
-      const responsiveScale = Math.min(1.2, Math.max(0.7, frameState.current.width / 1400))
-
-      group.rotation.x = -0.68 + Math.sin(t * 1.1) * 0.12
-      group.rotation.y = t * 0.9
-      group.rotation.z = Math.sin(t) * 0.08
-      group.position.y = Math.sin(t * 1.8) * 0.25
-      group.scale.setScalar(responsiveScale)
-      warpCurve.rotation.z += 0.003
-      warpCurve.rotation.x += 0.0015
-
-      const gridPulse = Math.sin(t * 2.6) * 0.15
-      gridA.position.z = -1.8 + gridPulse
-      gridB.position.z = 1.0 + Math.cos(t * 1.8) * 0.12
-      gridC.position.z = -2.8 + Math.sin(t * 1.4) * 0.15
-
-      renderer.render(scene, camera)
+      renderScene()
     }
 
     handleResize()
     animate()
+    void loadModel()
 
-    window.addEventListener('resize', handleResize)
+    const onResize = () => handleResize()
+    window.addEventListener('resize', onResize)
+    reduceMotionQuery.addEventListener?.('change', handleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize)
-      reduceMotionQuery.removeEventListener?.('change', updateReducedMotion)
+      window.removeEventListener('resize', onResize)
+      reduceMotionQuery.removeEventListener?.('change', handleResize)
       if (animationRef.current) cancelAnimationFrame(animationRef.current)
 
-      group.traverse((object) => {
-        if (object instanceof THREE.Mesh) {
-          object.geometry.dispose()
-          if (Array.isArray(object.material)) {
-            object.material.forEach((material) => material.dispose())
-          } else {
-            object.material.dispose()
+      modelGroup?.traverse((object) => {
+        if ('isMesh' in object && object.isMesh) {
+          const mesh = object as THREE.Mesh
+          mesh.geometry.dispose()
+
+          const material = mesh.material
+          if (Array.isArray(material)) {
+            material.forEach((entry) => entry.dispose())
+          } else if (material) {
+            material.dispose()
           }
         }
 
-        if (object instanceof THREE.LineSegments) {
-          object.geometry.dispose()
-          object.material.dispose()
+        if ('isLineSegments' in object && object.isLineSegments) {
+          const line = object as THREE.LineSegments
+          line.geometry.dispose()
+          const material = line.material
+          if (Array.isArray(material)) {
+            material.forEach((entry) => entry.dispose())
+          } else if (material) {
+            material.dispose()
+          }
         }
       })
 
@@ -187,10 +171,14 @@ export function SpacetimeBackground() {
   }, [])
 
   return (
-    <div
-      ref={mountRef}
-      aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-90"
-    />
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      <div
+        ref={mountRef}
+        aria-hidden="true"
+        className="absolute inset-0"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(3,5,5,0.12),_rgba(3,5,5,0.3)_38%,_rgba(3,5,5,0.62)_82%)]" />
+      <div className="absolute inset-0 backdrop-blur-[3px]" />
+    </div>
   )
 }

@@ -10,7 +10,7 @@ import { SocialLinks } from "@/components/social-links"
 const navigationItems = [
   { label: "Projects", href: "/#projects" },
   { label: "Reading", href: "/#reading" },
-  { label: "Field Notes", href: "/#field-notes" },
+  { label: "Articles", href: "/#field-notes" },
   { label: "Experience", href: "/#experience" },
   { label: "Resources", href: "/#resources" },
   { label: "Newsletter", href: "/#newsletter" },

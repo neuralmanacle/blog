@@ -4,7 +4,7 @@ import { AboutProfile } from "@/components/about-profile"
 const connectLinks = [
   { label: "Projects", href: "/#projects", description: "Selected work and experiments." },
   { label: "Reading", href: "/#reading", description: "The books and ideas in motion." },
-  { label: "Field Notes", href: "/#field-notes", description: "Notes from the workbench and the road." },
+  { label: "Articles", href: "/#field-notes", description: "Notes from the workbench and the road." },
 ]
 
 export default function AboutPage() {

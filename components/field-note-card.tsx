@@ -7,7 +7,7 @@ export interface FieldNoteCardProps {
   title: string
   date: string
   readingTime: string
-  tags: string[]
+  tags?: string[]
   href: string
 }
 
@@ -16,7 +16,7 @@ export function FieldNoteCard({
   title,
   date,
   readingTime,
-  tags,
+  tags = [],
   href,
 }: FieldNoteCardProps) {
   const paddedNumber = number.toString().padStart(3, "0")
@@ -36,7 +36,7 @@ export function FieldNoteCard({
             </Badge>
           ))}
         </div>
-        <h3 className="mb-2 text-lg font-semibold text-foreground">
+        <h3 className="mb-2 text-xl font-semibold text-foreground sm:text-2xl">
           <Link
             href={href}
             className="transition-colors hover:text-transparent hover:bg-[length:200%_100%] hover:bg-clip-text hover:[background-image:var(--site-accent)]"
