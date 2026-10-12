@@ -26,13 +26,13 @@ export default function ArticlePage() {
               A Train to Bikaner
             </h1>
 
-            <p className="text-base text-neutral-500 dark:text-neutral-400 font-mono italic">
+            <p className="text-2xl text-neutral-500 dark:text-neutral-400 font-mono italic leading-relaxed">
               Reflections from a train journey to Bikaner.
             </p>
 
             <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
 
-            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed text-justify">
+            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-2xl leading-relaxed text-justify">
               <h2 className="text-xl font-bold text-neutral-900 dark:text-white font-mono mt-8 mb-4">
                 Day 1
               </h2>

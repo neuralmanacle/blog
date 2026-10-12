@@ -25,13 +25,13 @@ export default function ArticlePage() {
               AI is a Buzzword: Why?
             </h1>
 
-            <p className="text-base text-neutral-500 dark:text-neutral-400 font-mono italic">
+            <p className="text-2xl text-neutral-500 dark:text-neutral-400 font-mono italic leading-relaxed">
               An exploration of AI as a dystopian sales gimmick and the shift to agent-driven computing.
             </p>
 
             <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
 
-            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed">
+            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-2xl leading-relaxed">
               <p>
                 Artifical Intelligence is a very broad and deep concept and one of the biggest advancement in the history of science. It is the most valuable ouput by the scientific community. The early history dates back to a paper in 1950's and there is a huge role of Alan Turing. The dystopian world had been already warned by a lot of writers including George Orwell in his most sold novel, 1984. The latest update by Google is the accelaration of speculative-driven AI Engineering.
               </p>

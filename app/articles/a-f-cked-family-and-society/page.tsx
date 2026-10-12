@@ -25,13 +25,13 @@ export default function ArticlePage() {
               A F*cked Family & Society
             </h1>
 
-            <p className="text-base text-neutral-500 dark:text-neutral-400 font-mono italic">
+            <p className="text-2xl text-neutral-500 dark:text-neutral-400 font-mono italic leading-relaxed">
               The typical Indian family is a control system, and financial freedom is the trump card.
             </p>
 
             <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
 
-            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed text-justify">
+            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-2xl leading-relaxed text-justify">
               <p>
                 A dear friend of mine recently moved to a European country for a few months as an exchange student to finish his business education. He had a psychedelic experience and a life-changing culture shock, which he saw coming. He concluded after the chat we had regarding the same: &quot;As a society, we Indians are f*cked.&quot;
               </p>

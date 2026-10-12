@@ -27,7 +27,7 @@ export default function ArticlePage() {
 
             <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
 
-            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed text-justify">
+            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-2xl leading-relaxed text-justify">
               <p>
                 A few yet valuable insights from the seminar hosted by the <a href="https://aes2.org/" target="_blank" rel="noreferrer" className="underline decoration-transparent decoration-2 underline-offset-4 transition-colors hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%] hover:bg-clip-text dark:hover:text-[#0D0D0D]">Audio Engineering Society</a> on August '26.
               </p>

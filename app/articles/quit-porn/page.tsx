@@ -26,13 +26,13 @@ export default function ArticlePage() {
               Aren&apos;t you tired of this night cardio?
             </h1>
 
-            <p className="text-base text-neutral-500 dark:text-neutral-400 font-mono italic">
+            <p className="text-2xl text-neutral-500 dark:text-neutral-400 font-mono italic leading-relaxed">
               The below are my personal opinions, and not everything is scientifically backed.
             </p>
 
             <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
 
-            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed text-justify">
+            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-2xl leading-relaxed text-justify">
               <p>
                 This post requires a lot of courage in my heart as I&apos;m speaking something to the 99.9% of men out in the world. Let us do the statistical analysis of the global male population. My net worth has been glowing red for around three years now. A weak man could not hold money at all, as he doesn&apos;t have any self-worth. My legs are shaky. I started consuming pornography at the age of 15. I&apos;ll turn 26 this November.
               </p>

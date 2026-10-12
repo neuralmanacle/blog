@@ -84,7 +84,7 @@ function AnimatedBody({
   }, [paragraphs, startDelay, durationPerWord, staggerPerWord, fromBlurPx, fromTranslateYPx])
 
   return (
-    <div ref={containerRef} className="article-header space-y-6 text-base leading-relaxed text-justify font-mono">
+    <div ref={containerRef} className="article-header space-y-6 text-2xl leading-relaxed text-justify font-mono">
       {paragraphs.map((paraTokens, pIdx) => {
         const elements: React.ReactNode[] = []
         let currentLink: string | undefined = undefined

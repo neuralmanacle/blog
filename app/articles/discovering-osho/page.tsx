@@ -26,13 +26,13 @@ export default function ArticlePage() {
               Discovering Osho
             </h1>
 
-            <p className="text-base text-neutral-500 dark:text-neutral-400 font-mono italic">
+            <p className="text-2xl text-neutral-500 dark:text-neutral-400 font-mono italic leading-relaxed">
               Knowing is not a destination but the expansion of consciousness; it is a journey.
             </p>
 
             <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
 
-            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed text-justify">
+            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-2xl leading-relaxed text-justify">
               <p>
                 Osho says that knowing is not a destination but the expansion of consciousness; it is a journey. This mystic and godman has certainly taken away my attention through his avant-garde futuristic aesthetic and the magnificent and formidable aura. Osho is beyond words, as he is multidimensional. Osho is a direction, an energy, and a vibe. He has the Kalkiesque energy; I have coined that term. The youth need a spiritual purpose in this dooming world, and this energy definitely moves towards that.
               </p>

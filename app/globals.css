@@ -296,6 +296,25 @@ h6,
   text-shadow: 0 0 18px rgba(74, 222, 128, 0.14);
 }
 
+article.prose {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@media (max-width: 767px) {
+  article.prose {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  article.prose p,
+  article.prose li,
+  article.prose blockquote {
+    font-size: 1rem !important;
+    line-height: 1.5rem !important;
+  }
+}
+
 .spacetime-background {
   position: fixed;
   inset: 0;

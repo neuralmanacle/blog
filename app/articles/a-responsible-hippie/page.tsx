@@ -25,13 +25,13 @@ export default function ArticlePage() {
               A responsible &quot;hippie.&quot;
             </h1>
 
-            <p className="text-base text-neutral-500 dark:text-neutral-400 font-mono italic">
+            <p className="text-2xl text-neutral-500 dark:text-neutral-400 font-mono italic leading-relaxed">
               A responsible hippie is rich enough to take care of themselves and create money for the betterment of the community also.
             </p>
 
             <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
 
-            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed text-justify">
+            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-2xl leading-relaxed text-justify">
               <p>
                 In the book &apos;Zahir&apos; by Paulo Coelho, there is a scene where the protagonist, who happens to be a writer, has a debatable conversation with the homeless &quot;hippies&quot; in the streets of Paris. The debate is regarding the &quot;hippie&quot; arguing about their freedom of choice of being irresponsible and contributing nothing to society and being in their bubble of libertarianism. Around two years ago I had embraced the &quot;hippie&quot; life for a short time of a few months in Arambol, Goa. It was ecstatic at first, but because evading the inner traumas and money leaves a cognitive scar on the soul, it was grueling. Haha. I was chasing &quot;hippie chicks&quot; only to be disappointed, as it is all an illusive transitory liminal space.
               </p>

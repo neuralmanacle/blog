@@ -43,10 +43,6 @@ export function CurrentReading() {
                 {book.title} — {book.author}
               </h3>
 
-              <p className="mt-3 text-sm uppercase tracking-[0.22em] text-gradient-secondary">
-                Book • Current Study
-              </p>
-
               <p className="mt-4 max-w-xl text-base leading-7 text-gradient-secondary">
                 {book.description}
               </p>

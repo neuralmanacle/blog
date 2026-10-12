@@ -25,13 +25,13 @@ export default function ArticlePage() {
               Ego Dissolution Through Carnatic Vocal Training
             </h1>
 
-            <p className="text-base text-neutral-500 dark:text-neutral-400 font-mono italic">
+            <p className="text-2xl text-neutral-500 dark:text-neutral-400 font-mono italic leading-relaxed">
               At the age of nearly 26, I finally crushed my stupid dumb ego by starting Carnatic vocal training.
             </p>
 
             <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
 
-            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed text-justify">
+            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-2xl leading-relaxed text-justify">
               <p>
                 At the age of nearly 26, I finally crushed my stupid dumb ego by starting Carnatic vocal training. I had never been trained before, even though music is in my DNA. The first class itself was a massive surge of dopamine and spiritual rush. It took my soul many years to dissolve its ego. As my energies are moving up towards the Third Eye Chakra (Ajna), the universe is shifting and the ego is dissolving. The music of the soul is evolving into truth. I&apos;m more attuned to the Beatles, Stones, and George Harrison these days. The lush and crisp voices created by the vibrations of an acoustic guitar paired with a soulful voice are more than enough for an intimate, soulful experience. Simple is better and to just let things go. My cognitive biases are dissolving as I just see everything as energy, frequency, and vibration. I&apos;m awaiting launching my YT channel and want to pour my heart and soul into it. I&apos;ll launch it when I really feel like the time is right. The universe is right. Inshallah. Om Namah Shivaya.
               </p>

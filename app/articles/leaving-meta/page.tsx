@@ -25,13 +25,13 @@ export default function ArticlePage() {
               Post-Meta Effect
             </h1>
 
-            <p className="text-base text-neutral-500 dark:text-neutral-400 font-mono italic">
+            <p className="text-2xl text-neutral-500 dark:text-neutral-400 font-mono italic leading-relaxed">
               A month or two ago I decided to permanently remove myself from Meta. The results of this exit are staggering.
             </p>
 
             <div className="border-t border-neutral-200 dark:border-neutral-800 my-6" />
 
-            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-base leading-relaxed text-justify">
+            <div className="space-y-6 text-neutral-700 dark:text-neutral-300 font-mono text-2xl leading-relaxed text-justify">
               <p>
                 A month or two ago I decided to permanently remove myself from Meta. The results of this exit are staggering. I can feel the healing that is happening to my brain. Meta is just a business that exploits basic human psychological caveats to make profits and do a feedforward loop aiming at inducing addictive behaviors for the users.
               </p>
