@@ -68,6 +68,13 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "October 13, 2026",
+    title: "Step 3: Window Shapes and Interpolation",
+    href: "/articles/step-03-window-shapes-and-interpolation",
+    takeaway: "How Hann and triangle windows smooth grain edges, and how linear interpolation reads between audio samples.",
+    tags: ["tech", "dsp", "juce", "audio"],
+  },
+  {
     date: "October 8, 2026",
     title: "Introducing Drizel",
     href: "/articles/introducing-drizel",
@@ -378,4 +385,3 @@ to their own selves`,
     tags: ["archives", "langchain", "streaming"],
   },
 ].reverse();
-
