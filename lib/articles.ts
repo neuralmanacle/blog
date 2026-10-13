@@ -69,6 +69,13 @@ export function getFieldNotes(): FieldNote[] {
 export const articles: Article[] = [
   {
     date: "October 13, 2026",
+    title: "Adding 4 Point Hermite Interpolation",
+    href: "/articles/four-point-hermite-interpolation",
+    takeaway: "How four-point Hermite interpolation estimates fractional audio samples and complements grain windowing.",
+    tags: ["tech", "dsp", "juce", "audio", "c++"],
+  },
+  {
+    date: "October 13, 2026",
     title: "Step 3: Window Shapes and Interpolation",
     href: "/articles/step-03-window-shapes-and-interpolation",
     takeaway: "How Hann and triangle windows smooth grain edges, and how linear interpolation reads between audio samples.",
