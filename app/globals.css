@@ -202,6 +202,19 @@
     font-size: inherit;
     border-radius: 0px !important;
   }
+
+  pre.shiki-themes {
+    color: var(--shiki-dark) !important;
+    background-color: #000 !important;
+  }
+
+  pre.shiki-themes code {
+    background-color: transparent !important;
+  }
+
+  pre.shiki-themes span {
+    color: var(--shiki-dark) !important;
+  }
   
   /* Override syntax highlight classes within code contexts */
   pre span.text-red-400,

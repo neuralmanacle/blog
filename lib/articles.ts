@@ -68,6 +68,13 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "October 18, 2026",
+    title: "Step 4: Playing One Grain",
+    href: "/articles/step-04-playing-one-grain",
+    takeaway: "How a grain reads a short sample slice at a chosen pitch, applies a window, and renders a single event.",
+    tags: ["tech", "dsp", "juce", "audio", "c++"],
+  },
+  {
     date: "October 13, 2026",
     title: "Adding 4 Point Hermite Interpolation",
     href: "/articles/four-point-hermite-interpolation",
