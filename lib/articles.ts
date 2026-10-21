@@ -68,6 +68,13 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "October 19, 2026",
+    title: "Step 5: From One Grain to a Texture",
+    href: "/articles/step-05-from-one-grain-to-a-texture",
+    takeaway: "How grain density, overlap-add, a fixed pool, and seeded variation turn individual grains into an offline stereo texture.",
+    tags: ["tech", "dsp", "juce", "audio", "c++"],
+  },
+  {
     date: "October 18, 2026",
     title: "Step 4: Playing One Grain",
     href: "/articles/step-04-playing-one-grain",
