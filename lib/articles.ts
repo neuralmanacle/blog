@@ -68,6 +68,13 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "October 22, 2026",
+    title: "Step 6: Playing the Grain Cloud Live",
+    href: "/articles/step-06-playing-the-grain-cloud-live",
+    takeaway: "How Drizel connects its offline grain cloud to a JUCE audio callback, safely hands off samples, and smooths live controls.",
+    tags: ["tech", "dsp", "juce", "audio", "c++"],
+  },
+  {
     date: "October 19, 2026",
     title: "Step 5: From One Grain to a Texture",
     href: "/articles/step-05-from-one-grain-to-a-texture",

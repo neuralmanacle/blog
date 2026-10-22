@@ -135,6 +135,40 @@
     }
   }
 
+  code {
+    font-size: 1.1375em !important;
+  }
+
+  code.text-xs {
+    font-size: 1.1375rem !important;
+  }
+
+  code.text-sm {
+    font-size: 1.3rem !important;
+  }
+
+  code.text-lg {
+    font-size: 1.4625rem !important;
+  }
+
+  pre code {
+    font-size: 1.3rem !important;
+  }
+
+  @media (min-width: 768px) {
+    code.text-xs {
+      font-size: 1.3rem !important;
+    }
+
+    code.text-sm {
+      font-size: 1.4625rem !important;
+    }
+
+    pre code {
+      font-size: 1.4625rem !important;
+    }
+  }
+
   @layer utilities {
     .text-sm {
       font-size: 1rem !important;
