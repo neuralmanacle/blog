@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { BookOpen, Github, Linkedin, Mail, Youtube } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { XIcon } from "@/components/x-icon"
 
 type SocialLinksProps = {
   onAction?: () => void
@@ -30,6 +31,9 @@ export function SocialLinks({ onAction, className }: SocialLinksProps) {
       </Link>
       <Link href="https://www.youtube.com/@neuralmanacle" target="_blank" rel="noopener noreferrer" onClick={handleClick} className={linkCls} aria-label="YouTube" title="YouTube">
         <Youtube className="h-4 w-4" />
+      </Link>
+      <Link href="https://x.com/neural_manacle" target="_blank" rel="noopener noreferrer" onClick={handleClick} className={linkCls} aria-label="X" title="X">
+        <XIcon className="h-4 w-4" />
       </Link>
       <Link href="https://www.goodreads.com/neuralmanacle" target="_blank" rel="noreferrer" onClick={handleClick} className={linkCls} aria-label="Goodreads" title="Goodreads">
         <BookOpen className="h-4 w-4" />
