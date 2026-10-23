@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { BookOpen, Github, Linkedin, Mail } from "lucide-react"
+import { BookOpen, Github, Linkedin, Mail, Youtube } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export default function Footer() {
@@ -16,6 +16,9 @@ export default function Footer() {
           </Link>
           <Link href="https://www.linkedin.com/in/neuralmanacle" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-neutral-300 transition-colors hover:text-transparent hover:bg-[length:200%_100%] hover:bg-clip-text hover:[background-image:var(--site-accent)]">
             <Linkedin className="h-4 w-4" /> LinkedIn
+          </Link>
+          <Link href="https://www.youtube.com/@neuralmanacle" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-neutral-300 transition-colors hover:text-transparent hover:bg-[length:200%_100%] hover:bg-clip-text hover:[background-image:var(--site-accent)]">
+            <Youtube className="h-4 w-4" /> YouTube
           </Link>
           <Link href="https://www.goodreads.com/neuralmanacle" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-neutral-300 transition-colors hover:text-transparent hover:bg-[length:200%_100%] hover:bg-clip-text hover:[background-image:var(--site-accent)]">
             <BookOpen className="h-4 w-4" /> Goodreads

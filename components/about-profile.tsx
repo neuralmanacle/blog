@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { BookOpen, Github, Linkedin, Mail } from "lucide-react"
+import { BookOpen, Github, Linkedin, Mail, Youtube } from "lucide-react"
 import { CalBooking } from "@/components/cal-booking"
 import ContactForm from "@/components/contact-form"
 
@@ -62,6 +62,10 @@ export function AboutProfile({ id = "about" }: { id?: string }) {
             <Link href="https://github.com/neuralmanacle" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-neutral-700 px-3 py-2 text-sm text-neutral-200 transition-colors hover:border-transparent hover:!text-[#0D0D0D] hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%]">
               <Github className="h-4 w-4" />
               GitHub
+            </Link>
+            <Link href="https://www.youtube.com/@neuralmanacle" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-neutral-700 px-3 py-2 text-sm text-neutral-200 transition-colors hover:border-transparent hover:!text-[#0D0D0D] hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%]">
+              <Youtube className="h-4 w-4" />
+              YouTube
             </Link>
             <Link href="https://www.goodreads.com/neuralmanacle" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-neutral-700 px-3 py-2 text-sm text-neutral-200 transition-colors hover:border-transparent hover:!text-[#0D0D0D] hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%]">
               <BookOpen className="h-4 w-4" />

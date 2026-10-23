@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { BookOpen, Github, Linkedin, Mail } from "lucide-react"
+import { BookOpen, Github, Linkedin, Mail, Youtube } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type SocialLinksProps = {
@@ -27,6 +27,9 @@ export function SocialLinks({ onAction, className }: SocialLinksProps) {
       </Link>
       <Link href="https://www.linkedin.com/in/neuralmanacle" target="_blank" rel="noopener noreferrer" onClick={handleClick} className={linkCls} aria-label="LinkedIn" title="LinkedIn">
         <Linkedin className="h-4 w-4" />
+      </Link>
+      <Link href="https://www.youtube.com/@neuralmanacle" target="_blank" rel="noopener noreferrer" onClick={handleClick} className={linkCls} aria-label="YouTube" title="YouTube">
+        <Youtube className="h-4 w-4" />
       </Link>
       <Link href="https://www.goodreads.com/neuralmanacle" target="_blank" rel="noreferrer" onClick={handleClick} className={linkCls} aria-label="Goodreads" title="Goodreads">
         <BookOpen className="h-4 w-4" />
