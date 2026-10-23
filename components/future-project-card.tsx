@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export function FutureProjectCard() {
   return (
     <article className="rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-[0_0_0_1px_rgba(247,185,4,0.04)]">
@@ -44,6 +46,13 @@ export function FutureProjectCard() {
           </li>
         ))}
       </ul>
+
+      <Link
+        href="/projects/drizel"
+        className="mt-6 inline-flex items-center rounded-lg border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition-colors hover:border-transparent hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)]"
+      >
+        Project &amp; articles
+      </Link>
     </article>
   )
 }
