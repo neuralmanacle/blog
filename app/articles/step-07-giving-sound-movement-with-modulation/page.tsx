@@ -3,6 +3,39 @@ import ArticleTags from "@/components/article-tags"
 import CodeBlock from "@/components/code-block"
 import RevealOnView from "@/components/reveal-on-view"
 
+function MathEquation({ markup, label }: { markup: string; label: string }) {
+  return (
+    <div className="my-5 overflow-x-auto rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-5 text-neutral-800 dark:border-white/10 dark:bg-white/[0.03] dark:text-neutral-100">
+      <math
+        display="block"
+        aria-label={label}
+        className="mx-auto font-serif text-xl sm:text-2xl"
+        dangerouslySetInnerHTML={{ __html: markup }}
+      />
+    </div>
+  )
+}
+
+function MathEquationGroup({
+  equations,
+}: {
+  equations: { markup: string; label: string }[]
+}) {
+  return (
+    <div className="my-5 flex flex-col gap-6 overflow-x-auto rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-5 text-neutral-800 dark:border-white/10 dark:bg-white/[0.03] dark:text-neutral-100">
+      {equations.map(({ markup, label }) => (
+        <math
+          key={label}
+          display="block"
+          aria-label={label}
+          className="mx-auto whitespace-nowrap font-serif text-xl sm:text-2xl"
+          dangerouslySetInnerHTML={{ __html: markup }}
+        />
+      ))}
+    </div>
+  )
+}
+
 const tableClass =
   "w-full min-w-[36rem] border-collapse text-left font-sans text-base"
 const headClass = "bg-neutral-100 dark:bg-white/5"
@@ -132,14 +165,23 @@ Destination Parameter
                 </table>
               </div>
               <p>
-                Frequency is measured in Hz, with one cycle taking <strong>T = 1 / f</strong> seconds. A 1 Hz LFO completes a cycle each second. A 0.1 Hz LFO takes 10 seconds. That gives us a way to create slow, evolving textures instead of fast audible vibrato.
+                Frequency is measured in Hz, with one cycle taking{" "}
+                <math
+                  aria-label="T equals one over f"
+                  className="inline align-middle font-serif text-2xl"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      "<mrow><mi>T</mi><mo>=</mo><mfrac><mn>1</mn><mi>f</mi></mfrac></mrow>",
+                  }}
+                />{" "}
+                seconds. A 1 Hz LFO completes a cycle each second. A 0.1 Hz LFO takes 10 seconds. That gives us a way to create slow, evolving textures instead of fast audible vibrato.
               </p>
               <p>
                 Phase is the current position within the cycle. A normalized phase runs from 0 to 1, where 0.25 is a quarter cycle and 0.5 is halfway through. The sine is computed using:
               </p>
-              <CodeBlock
-                language="text"
-                code={`L(φ) = sin(2πφ)`}
+              <MathEquation
+                label="L of phi equals sine of two pi phi"
+                markup="<mrow><mi>L</mi><mo>(</mo><mi>φ</mi><mo>)</mo><mo>=</mo><mi mathvariant='normal'>sin</mi><mo>(</mo><mn>2</mn><mi>π</mi><mi>φ</mi><mo>)</mo></mrow>"
               />
               <p>
                 Depth is the modulation intensity. A destination can move by a small amount or a large amount depending on how much of the LFO signal we apply. Rate says how fast it moves; depth says how much it moves.
@@ -219,29 +261,50 @@ phase_ -= std::floor(phase_);`}
               <p>
                 The general formula is:
               </p>
-              <CodeBlock
-                language="text"
-                code={`P_target = P_base + L(t) * D * R`}
+              <MathEquation
+                label="P target equals P base plus L of t times D times R"
+                markup="<mrow><msub><mi>P</mi><mtext>target</mtext></msub><mo>=</mo><msub><mi>P</mi><mtext>base</mtext></msub><mo>+</mo><mi>L</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>·</mo><mi>D</mi><mo>·</mo><mi>R</mi></mrow>"
               />
               <p>
                 Here, <strong>P_base</strong> is the manual value, <strong>L(t)</strong> is the LFO output, <strong>D</strong> is modulation depth, and <strong>R</strong> is the maximum modulation range. A position modulation example becomes:
               </p>
-              <CodeBlock
-                language="text"
-                code={`Base position = 0.5
-LFO output    = +1.0
-Depth         = 0.8
-Range         = 0.25
-
-P = 0.5 + (1.0 * 0.8 * 0.25)
-  = 0.7`}
+              <MathEquationGroup
+                equations={[
+                  {
+                    label: "P base equals 0.5",
+                    markup:
+                      "<mrow><msub><mi>P</mi><mtext>base</mtext></msub><mo>=</mo><mn>0.5</mn></mrow>",
+                  },
+                  {
+                    label: "L of t equals positive 1",
+                    markup:
+                      "<mrow><mi>L</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><mo>+</mo><mn>1.0</mn></mrow>",
+                  },
+                  {
+                    label: "D equals 0.8",
+                    markup: "<mrow><mi>D</mi><mo>=</mo><mn>0.8</mn></mrow>",
+                  },
+                  {
+                    label: "R equals 0.25",
+                    markup: "<mrow><mi>R</mi><mo>=</mo><mn>0.25</mn></mrow>",
+                  },
+                  {
+                    label: "P equals 0.5 plus 1 times 0.8 times 0.25",
+                    markup:
+                      "<mrow><mi>P</mi><mo>=</mo><mn>0.5</mn><mo>+</mo><mo>(</mo><mn>1.0</mn><mo>·</mo><mn>0.8</mn><mo>·</mo><mn>0.25</mn><mo>)</mo></mrow>",
+                  },
+                  {
+                    label: "P equals 0.7",
+                    markup: "<mrow><mi>P</mi><mo>=</mo><mn>0.7</mn></mrow>",
+                  },
+                ]}
               />
               <p>
                 The same LFO can push the grain-start position from 0.3 to 0.7, giving the synth a repeated scan through a sample. For pitch, we might use a range of ±12 semitones and scale the LFO output by depth, creating a slow pitch drift or periodic movement.
               </p>
 
               <h2 className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white">
-                6. Clamping and real-time safety
+                6. Keeping modulation values in range
               </h2>
               <p>
                 A parameter cannot always accept any possible modulation value. Position is valid only between 0 and 1; pitch must remain in a workable range. If modulation pushes an output beyond its valid domain, the result is not just a bad number; it can create unstable or unpredictable synth behaviour.
@@ -264,7 +327,7 @@ pitch = std::clamp(
                 Clamping turns modulation from a loose mathematical idea into a bounded audio-control system. Every destination has a defined range, and the engine respects it.
               </p>
               <p>
-                This also keeps the modulation path safe for the audio callback. The code avoids blocking operations, allocations, locks, and file access. It produces deterministic values from a small amount of state and a few arithmetic operations.
+                Every modulation destination needs defined units, limits, and boundary behaviour. Clamping can flatten part of the LFO movement when the base value is already near a limit, but it prevents invalid targets from reaching the engine.
               </p>
 
               <h2 className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white">
@@ -309,13 +372,13 @@ lfo.setShape(
               </p>
 
               <h2 className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white">
-                8. Modulation and smoothing are different jobs
+                8. Modulation, clamping, and smoothing
               </h2>
               <p>
-                This is one of the most important ideas in the step. The engine already contains smoothing to avoid abrupt changes. That is not the same as modulation.
+                These operations solve different problems. Modulation calculates a changing target, clamping keeps that target inside its valid range, and smoothing determines how quickly the engine follows it.
               </p>
               <p>
-                <strong>Modulation decides where a parameter should move.</strong> <strong>Smoothing decides how quickly the current value approaches that target.</strong>
+                <strong>Modulation decides where a parameter should move.</strong> <strong>Clamping keeps the target valid.</strong> <strong>Smoothing controls how quickly the current value approaches it.</strong>
               </p>
               <p>
                 The signal flow looks like this:
@@ -333,7 +396,113 @@ Modulated Target
 Granular Engine`}
               />
               <p>
-                In other words, modulation creates movement, while smoothing damps and shapes the transition. A fast LFO and a 20 ms smoothing time constant interact in a very real way: the smoother can lag behind the modulation source and attenuate sharp movement. That is not a bug; it is a property of the system. We can tune it later as needed.
+                A position target can be written as:
+              </p>
+              <MathEquationGroup
+                equations={[
+                  {
+                    label:
+                      "P target n equals P base plus L n times D times R",
+                    markup:
+                      "<mrow><msub><mi>P</mi><mtext>target</mtext></msub><mo>[</mo><mi>n</mi><mo>]</mo><mo>=</mo><msub><mi>P</mi><mtext>base</mtext></msub><mo>+</mo><mi>L</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>·</mo><mi>D</mi><mo>·</mo><mi>R</mi></mrow>",
+                  },
+                  {
+                    label:
+                      "P safe n equals clamp of P target n between 0 and 1",
+                    markup:
+                      "<mrow><msub><mi>P</mi><mtext>safe</mtext></msub><mo>[</mo><mi>n</mi><mo>]</mo><mo>=</mo><mi mathvariant='normal'>clamp</mi><mo>(</mo><msub><mi>P</mi><mtext>target</mtext></msub><mo>[</mo><mi>n</mi><mo>]</mo><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow>",
+                  },
+                ]}
+              />
+              <p>
+                Here, <strong>P_base</strong> is the manually selected position, <strong>L[n]</strong> is the current LFO value, <strong>D</strong> is depth, and <strong>R</strong> is the modulation range. The LFO output is bipolar, so the target can move on either side of the base value. Clamping ensures the normalized position stays between 0 and 1.
+              </p>
+              <p>
+                The real-time engine then follows the safe target with a one-pole exponential smoother:
+              </p>
+              <MathEquationGroup
+                equations={[
+                  {
+                    label:
+                      "P n equals P n minus 1 plus alpha times P safe n minus P n minus 1",
+                    markup:
+                      "<mrow><mi>P</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>=</mo><mi>P</mi><mo>[</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>+</mo><mi>α</mi><mo>(</mo><msub><mi>P</mi><mtext>safe</mtext></msub><mo>[</mo><mi>n</mi><mo>]</mo><mo>−</mo><mi>P</mi><mo>[</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>)</mo></mrow>",
+                  },
+                  {
+                    label:
+                      "Alpha equals one minus exponential of negative one divided by sample rate times time constant",
+                    markup:
+                      "<mrow><mi>α</mi><mo>=</mo><mn>1</mn><mo>−</mo><mi mathvariant='normal'>exp</mi><mo>(</mo><mo>−</mo><mfrac><mn>1</mn><mrow><mi mathvariant='normal'>sampleRate</mi><mo>·</mo><mi mathvariant='normal'>timeConstant</mi></mrow></mfrac><mo>)</mo></mrow>",
+                  },
+                ]}
+              />
+              <p>
+                Drizel uses a 20 ms time constant. A stationary target is approached exponentially rather than reached in one step: after one time constant, the smoother has covered about 63.2% of the initial distance.
+              </p>
+              <p>
+                In <code>RealtimeEngine.h</code>, the coefficient and update are implemented along these lines:
+              </p>
+              <CodeBlock
+                language="cpp"
+                code={`coefficient_ = 1.0 - std::exp(-1.0 / (rate * 0.02));
+
+void smooth(double& value, double target,
+            double low, double high) noexcept
+{
+    if (std::isfinite(target))
+        value += coefficient_ *
+            (std::clamp(target, low, high) - value);
+}`}
+              />
+              <p>
+                The smoother runs once per output sample. It is also applied to pitch, density, and gain, each with its own valid range.
+              </p>
+              <div className="overflow-x-auto rounded-2xl border border-neutral-200 dark:border-white/10">
+                <table className={tableClass}>
+                  <thead className={headClass}>
+                    <tr>
+                      <th className={cellClass}>Time after change</th>
+                      <th className={cellClass}>Target</th>
+                      <th className={cellClass}>Smoothed position</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className={rowClass}>
+                      <td className={cellClass}>0 ms</td>
+                      <td className={cellClass}>1.00</td>
+                      <td className={cellClass}>0.200</td>
+                    </tr>
+                    <tr className={rowClass}>
+                      <td className={cellClass}>10 ms</td>
+                      <td className={cellClass}>1.00</td>
+                      <td className={cellClass}>0.515</td>
+                    </tr>
+                    <tr className={rowClass}>
+                      <td className={cellClass}>20 ms</td>
+                      <td className={cellClass}>1.00</td>
+                      <td className={cellClass}>0.706</td>
+                    </tr>
+                    <tr className={rowClass}>
+                      <td className={cellClass}>40 ms</td>
+                      <td className={cellClass}>1.00</td>
+                      <td className={cellClass}>0.892</td>
+                    </tr>
+                    <tr>
+                      <td className={cellClass}>60 ms</td>
+                      <td className={cellClass}>1.00</td>
+                      <td className={cellClass}>0.960</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                These values show a target that jumps from 0.2 to 1.0 and then stays there. With a continuously oscillating LFO, the target keeps moving, so the smoother follows it with some lag and can attenuate faster movement.
+              </p>
+              <p>
+                A sine LFO is already continuous and does not inherently require smoothing. Smoothing is still useful for abrupt changes from manual controls, host automation, or modulation settings; too much smoothing can weaken fast modulation.
+              </p>
+              <p>
+                In the grain engine, the scheduler decides <strong>when</strong> to launch a grain. The smoothed position affects <strong>where</strong> that new grain starts in the source recording. Existing grains keep the source start position chosen when they launched.
               </p>
 
               <h2 className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white">
@@ -350,7 +519,40 @@ Granular Engine`}
               </p>
 
               <h2 className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white">
-                10. What we learn from the first modulation system
+                10. Keeping modulation real-time safe
+              </h2>
+              <p>
+                The audio callback must finish within its deadline. A delay can produce an audible dropout, so modulation work inside that callback needs to stay lightweight and predictable.
+              </p>
+              <p>
+                The LFO keeps a small amount of state and does not allocate memory, read files, acquire mutexes, or create threads while generating values. Keeping it independent of JUCE also lets us test the signal-generation logic separately from the plugin and audio device.
+              </p>
+
+              <h2 className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white">
+                11. Testing the modulation system
+              </h2>
+              <p>
+                Automated tests check the behaviour we can predict without relying only on listening:
+              </p>
+              <ul className="list-disc space-y-2 pl-6 marker:text-emerald-300">
+                <li>Sine phase values at known points in the cycle.</li>
+                <li>Triangle wave starting and midpoint values.</li>
+                <li>Deterministic output from identical oscillator states.</li>
+                <li>Zero depth leaves the destination unchanged.</li>
+                <li>Position and pitch stay within their supported limits.</li>
+              </ul>
+              <p>
+                The CTest entry is named <code>modulation</code>. The draft records the tests as implemented, but says their results had not yet been verified on the target Mac. Listening tests and worst-case callback performance measurements are also still needed.
+              </p>
+              <CodeBlock
+                language="bash"
+                code={`cmake -S . -B build -DDRIZEL_JUCE_PATH=../JUCE
+cmake --build build --parallel 2
+ctest --test-dir build --output-on-failure`}
+              />
+
+              <h2 className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white">
+                12. What we learn from the first modulation system
               </h2>
               <p>
                 At first glance, Step 7 adds only a sine wave and a triangle wave. But the architectural shift is bigger than that. We now have a clean separation between:
@@ -358,7 +560,7 @@ Granular Engine`}
               <ul className="list-disc space-y-2 pl-6 marker:text-emerald-300">
                 <li><strong>Source</strong>: a signal generator like an LFO.</li>
                 <li><strong>Routing</strong>: the choice of destination and depth.</li>
-                <li><strong>Engine</strong>: the granuar synthesizer that consumes the control values.</li>
+                <li><strong>Engine</strong>: the granular synthesizer that consumes the control values.</li>
               </ul>
               <p>
                 That separation is what enables future work: envelope generators, random-walk modulation, density modulation, spread modulation, and more flexible control policies. It also gives us a foundation for instructions that can describe musically meaningful movement, even if that is still a longer-term experiment.
@@ -371,7 +573,7 @@ Granular Engine`}
               </p>
 
               <h2 className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white">
-                11. The next step
+                13. The next step
               </h2>
               <p>
                 The next work is to extend the modulation system beyond a single LFO and destination. We can add more sources, more routing flexibility, and clearer rules for how modulation interacts with the grain scheduler and smoothing layers. The goal is to preserve the real-time safety that made this early version useful while opening the door to richer, more musical motion.

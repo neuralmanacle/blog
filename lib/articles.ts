@@ -71,7 +71,7 @@ export const articles: Article[] = [
     date: "October 24, 2026",
     title: "Step 7: Giving Sound Movement with Modulation",
     href: "/articles/step-07-giving-sound-movement-with-modulation",
-    takeaway: "How a low-frequency oscillator, modulation routing, and parameter clamping add motion and evolution to the Drizel grain cloud.",
+    takeaway: "How an LFO drives position and pitch, and how clamping, smoothing, and real-time constraints shape modulation in Drizel.",
     tags: ["tech", "dsp", "juce", "audio", "c++"],
   },
   {
