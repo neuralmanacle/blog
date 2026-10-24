@@ -68,6 +68,13 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "October 24, 2026",
+    title: "Step 7: Giving Sound Movement with Modulation",
+    href: "/articles/step-07-giving-sound-movement-with-modulation",
+    takeaway: "How a low-frequency oscillator, modulation routing, and parameter clamping add motion and evolution to the Drizel grain cloud.",
+    tags: ["tech", "dsp", "juce", "audio", "c++"],
+  },
+  {
     date: "October 22, 2026",
     title: "Step 6: Playing the Grain Cloud Live",
     href: "/articles/step-06-playing-the-grain-cloud-live",

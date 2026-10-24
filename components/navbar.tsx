@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { SocialLinks } from "@/components/social-links"
+import ThemeToggle from "@/components/theme-toggle"
 
 const navigationItems = [
   { label: "Projects", href: "/#projects" },
@@ -65,6 +66,7 @@ export default function Navbar({ className }: { className?: string }) {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <div className="hidden xl:block">
             <SocialLinks />
           </div>

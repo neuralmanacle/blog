@@ -17,18 +17,19 @@ export const metadata: Metadata = {
     url: "/projects/drizel",
     siteName: "Neural Manacle",
     type: "website",
-    images: ["/drizel-logo-large.png"],
+    images: ["/logo.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Drizel — Granular Synthesizer",
     description:
       "A JUCE-based granular synthesizer and a development series covering DSP, grain scheduling, and real-time audio.",
-    images: ["/drizel-logo-large.png"],
+    images: ["/logo.png"],
   },
 }
 
 const drizelArticleHrefs = new Set([
+  "/articles/step-07-giving-sound-movement-with-modulation",
   "/articles/step-06-playing-the-grain-cloud-live",
   "/articles/step-05-from-one-grain-to-a-texture",
   "/articles/step-04-playing-one-grain",

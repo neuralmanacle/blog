@@ -59,7 +59,7 @@ html { font-family: var(--font-mono); }
       </head>
       <body className="min-h-dvh bg-background text-foreground antialiased" suppressHydrationWarning={true}>
         <SupabaseDataProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
             <SpacetimeBackground />
             <Navbar />
             {children}

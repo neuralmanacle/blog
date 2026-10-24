@@ -150,7 +150,7 @@ export default function Page() {
             href="https://people.cs.gmu.edu/~sean/book/synthesis/"
             target="_blank"
             rel="noreferrer"
-            className="mt-3 inline-block text-lg font-medium text-[#F2F2F2] underline decoration-transparent underline-offset-4 transition hover:text-transparent hover:bg-[length:200%_100%] hover:bg-clip-text hover:[background-image:var(--site-accent)]"
+            className="mt-3 inline-block text-lg font-medium text-[#675016] underline decoration-[#9a7737] underline-offset-4 transition hover:text-transparent hover:bg-[length:200%_100%] hover:bg-clip-text hover:[background-image:var(--site-accent)] dark:text-amber-300 dark:decoration-amber-400/70"
           >
             Computational Music Synthesis — Sean Luke
           </a>
