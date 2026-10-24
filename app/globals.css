@@ -3,48 +3,51 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f2e7c5;
-  --foreground: #30291d;
-  --card: #f8f0d8;
-  --card-foreground: var(--foreground);
-  --popover: var(--background);
-  --popover-foreground: var(--foreground);
-  --primary: var(--foreground);
-  --primary-foreground: var(--background);
-  --secondary: #eadfbd;
-  --secondary-foreground: var(--foreground);
-  --muted: #eadfbd;
-  --muted-foreground: #75694f;
-  --accent: var(--site-accent);
-  --accent-foreground: var(--foreground);
-  --destructive: oklch(0.55 0.2 25);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: var(--foreground);
-  --input: var(--foreground);
-  --ring: #f70478;
+  color-scheme: light;
+
+  /* Surfaces */
+  --background: #F7F5EF;
+  --foreground: #292D28;
+  --card: #FDFCF8;
+  --card-foreground: #292D28;
+  --popover: #FDFCF8;
+  --popover-foreground: #292D28;
+
+  /* Components */
+  --primary: #355C4A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EAE7DD;
+  --secondary-foreground: #292D28;
+  --muted: #EAE7DD;
+  --muted-foreground: #686D65;
+  --accent: #E9EEE8;
+  --accent-foreground: #355C4A;
+
+  --destructive: #B64049;
+  --destructive-foreground: #FFFFFF;
+  --border: #D9DBD1;
+  --input: #C7CBC0;
+  --ring: #6E907B;
   --radius: 0.75rem;
 
-  /* Warm, ink-on-paper palette for light mode */
-  --code-bg: #eee3c4;
-  --code-border: #d8c99f;
-  --code-text: #352e22;
-  --code-keyword: oklch(0.52 0.16 340);
-  --code-entity: oklch(0.48 0.15 240);
-  --code-type: oklch(0.55 0.13 190);
-  --code-string: oklch(0.46 0.12 140);
-  --code-literal: oklch(0.52 0.16 300);
-  --code-comment: oklch(0.62 0.01 240);
+  /* Brand gradient */
+  --rainbow-1: #8E405B;
+  --rainbow-2: #B35C66;
+  --rainbow-3: #A07B42;
+  --rainbow-4: #785C91;
+  --rainbow-5: #355C4A;
+  --rainbow-6: #527E76;
 
-  /* Palette tuned to the provided earthy pink / plum / burgundy family */
-  --rainbow-1: #f70478;
-  --rainbow-2: #f83448;
-  --rainbow-3: #977104;
-  --rainbow-4: #9d55a6;
-  --rainbow-5: #930513;
-  --rainbow-6: #547c64;
-
-  --site-accent: linear-gradient(135deg, var(--rainbow-1) 0%, var(--rainbow-2) 18%, var(--rainbow-3) 36%, var(--rainbow-4) 52%, var(--rainbow-5) 70%, var(--rainbow-6) 100%);
-  --site-accent-solid: #9d55a6;
+  --site-accent: linear-gradient(
+    135deg,
+    var(--rainbow-1) 0%,
+    var(--rainbow-2) 18%,
+    var(--rainbow-3) 36%,
+    var(--rainbow-4) 52%,
+    var(--rainbow-5) 70%,
+    var(--rainbow-6) 100%
+  );
+  --site-accent-solid: #8E405B;
 }
 
 .dark {
@@ -66,17 +69,6 @@
   --input: #2A2A2A;
   --ring: #ff4fb6;
 
-  /* Modern dark mode coding scheme (curated dark sage-olive tint) */
-  --code-bg: #242424;
-  --code-border: #414141;
-  --code-text: #E6E6E6;
-  --code-keyword: #DE6B9E;
-  --code-entity: #5DB5DF;
-  --code-type: #61C5C7;
-  --code-string: #95D169;
-  --code-literal: #B98BE3;
-  --code-comment: #929292;
-
   /* Rainbow flow animation colors (dark-mode version of the brand palette) */
   --rainbow-1: #f70478;
   --rainbow-2: #f83448;
@@ -90,6 +82,16 @@
 
 html:not(.dark) {
   color-scheme: light;
+}
+
+/* Inline code */
+html:not(.dark) :not(pre) > code {
+  background: #E9E8DF !important;
+  color: #8E405B !important;
+  border: 1px solid #DADDD3 !important;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.88em;
 }
 
 html:not(.dark) [class~="text-white"],
@@ -170,25 +172,6 @@ html:not(.dark) .article-header {
   text-shadow: none;
 }
 
-html:not(.dark) pre.shiki-themes {
-  color: var(--shiki-light) !important;
-  background-color: #eee3c4 !important;
-}
-
-html:not(.dark) pre.shiki-themes span {
-  color: var(--shiki-light) !important;
-}
-
-html:not(.dark) .code-block-container,
-html:not(.dark) .code-block-container pre.shiki-themes,
-html:not(.dark) .code-block-container pre.shiki-themes code {
-  background-color: #eee3c4 !important;
-}
-
-html:not(.dark) .code-block-container {
-  border-color: #d8c99f !important;
-}
-
 html:not(.dark) button[type="submit"] {
   border-color: #c6b784 !important;
   background-color: #e6d8b2 !important;
@@ -253,40 +236,6 @@ html:not(.dark) button[type="submit"] {
     }
   }
 
-  code {
-    font-size: 1.1375em !important;
-  }
-
-  code.text-xs {
-    font-size: 1.1375rem !important;
-  }
-
-  code.text-sm {
-    font-size: 1.3rem !important;
-  }
-
-  code.text-lg {
-    font-size: 1.4625rem !important;
-  }
-
-  pre code {
-    font-size: 1.3rem !important;
-  }
-
-  @media (min-width: 768px) {
-    code.text-xs {
-      font-size: 1.3rem !important;
-    }
-
-    code.text-sm {
-      font-size: 1.4625rem !important;
-    }
-
-    pre code {
-      font-size: 1.4625rem !important;
-    }
-  }
-
   @layer utilities {
     .text-sm {
       font-size: 1rem !important;
@@ -329,108 +278,6 @@ html:not(.dark) button[type="submit"] {
     font-family: 'Rozha One', serif;
   }
   
-  /* Unified Coding Color Scheme overrides */
-  pre, code {
-    background-color: var(--code-bg) !important;
-    border-color: var(--code-border) !important;
-    color: var(--code-text) !important;
-  }
-
-  pre {
-    border-radius: 0.75rem !important;
-  }
-
-  code {
-    border-width: 1px;
-    border-style: solid;
-    padding: 0.125rem 0.375rem;
-    font-size: 0.875em;
-    border-radius: 0.25rem !important;
-  }
-
-  pre code {
-    border-width: 0px !important;
-    padding: 0px !important;
-    font-size: inherit;
-    border-radius: 0px !important;
-  }
-
-  .dark pre.shiki-themes {
-    color: var(--shiki-dark) !important;
-    background-color: #24292e !important;
-  }
-
-  pre.shiki-themes code {
-    background-color: transparent !important;
-  }
-
-  .dark pre.shiki-themes span {
-    color: var(--shiki-dark) !important;
-  }
-  
-  /* Override syntax highlight classes within code contexts */
-  pre span.text-red-400,
-  code span.text-red-400,
-  pre .text-red-400,
-  code .text-red-400 {
-    color: transparent !important;
-    background-image: var(--site-accent) !important;
-    background-size: 200% 100% !important;
-    background-repeat: no-repeat !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-  }
-
-  .dark .code-block-container {
-    background-color: #24292e !important;
-    border-color: #414141 !important;
-  }
-  
-  pre span.text-cyan-400,
-  code span.text-cyan-400,
-  pre .text-cyan-400,
-  code .text-cyan-400 {
-    color: var(--code-entity) !important;
-  }
-  
-  pre span.text-orange-400,
-  code span.text-orange-400,
-  pre .text-orange-400,
-  code .text-orange-400 {
-    color: var(--code-type) !important;
-  }
-  
-  pre span.text-green-400,
-  code span.text-green-400,
-  pre .text-green-400,
-  code .text-green-400 {
-    color: var(--code-string) !important;
-  }
-  
-  pre span.text-purple-400,
-  code span.text-purple-400,
-  pre .text-purple-400,
-  code .text-purple-400 {
-    color: var(--code-literal) !important;
-  }
-  
-  pre span.text-neutral-500,
-  code span.text-neutral-500,
-  pre .text-neutral-500,
-  code .text-neutral-500 {
-    color: var(--code-comment) !important;
-  }
-  
-  pre span.text-neutral-200,
-  code span.text-neutral-200,
-  pre .text-neutral-200,
-  code .text-neutral-200,
-  pre span.text-neutral-700,
-  code span.text-neutral-700,
-  pre .text-neutral-700,
-  code .text-neutral-700 {
-    color: var(--code-text) !important;
-  }
 }
 
 @layer utilities {
@@ -653,4 +500,131 @@ article.prose {
   mix-blend-mode: overlay;
   z-index: 1;
   animation: crt-scanline 8s linear infinite;
+}
+
+/* ===========================================
+   NEURAL MANACLE — CODE EDITOR
+   =========================================== */
+
+.code-block-container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 1.25rem 0;
+  overflow: hidden;
+
+  background: #F6F8FA;
+  border: 1px solid #D8DEE4;
+  border-radius: 10px;
+}
+
+/* Keep scrolling inside the code editor */
+.code-block-container pre,
+.code-block-container pre.shiki-themes {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+
+  margin: 0 !important;
+  padding: 16px 18px !important;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+
+  white-space: pre !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Reset code typography */
+.code-block-container pre code,
+.code-block-container pre.shiki-themes code {
+  display: block !important;
+
+  width: max-content;
+  min-width: 100%;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+
+  font-family:
+    "Geist Mono",
+    "SFMono-Regular",
+    Consolas,
+    monospace !important;
+
+  font-size: 16.9px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+
+  white-space: pre !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* Reset any inherited line styling */
+.code-block-container pre code .line {
+  display: block;
+  min-height: 1.6em;
+  line-height: inherit !important;
+}
+
+/* Preserve Shiki token colors */
+html:not(.dark) .code-block-container pre.shiki-themes,
+html:not(.dark) .code-block-container pre.shiki-themes span {
+  color: var(--shiki-light) !important;
+}
+
+.dark .code-block-container pre.shiki-themes,
+.dark .code-block-container pre.shiki-themes span {
+  color: var(--shiki-dark) !important;
+}
+
+/* Prevent global text-gradient rules */
+.code-block-container pre span {
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+
+  text-shadow: none !important;
+}
+
+/* Light mode */
+html:not(.dark) .code-block-container {
+  background: #F6F8FA !important;
+  border-color: #D8DEE4 !important;
+}
+
+/* Dark mode */
+.dark .code-block-container {
+  background: #24292E !important;
+  border-color: #414141 !important;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .code-block-container pre {
+    padding: 12px 14px !important;
+  }
+
+  .code-block-container pre code {
+    font-size: 15.6px !important;
+    line-height: 1.55 !important;
+  }
 }
