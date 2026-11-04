@@ -1,4 +1,7 @@
-import { articles as localArticles } from "@/lib/articles"
+import {
+  articles as localArticles,
+  mergeArticlesWithLocalFallbacks,
+} from "@/lib/articles"
 import { createClient } from "@supabase/supabase-js"
 
 export async function GET() {
@@ -12,9 +15,7 @@ export async function GET() {
     try {
       const supabase = createClient(supabaseUrl, supabaseAnonKey)
       const { data } = await supabase.from("articles").select("*")
-      if (data && data.length > 0) {
-        articles = data
-      }
+      articles = mergeArticlesWithLocalFallbacks(data)
     } catch (e) {
       console.error("Failed to fetch articles from Supabase in feed.xml, falling back to local.", e)
     }

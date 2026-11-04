@@ -2,7 +2,11 @@
 
 import * as React from "react"
 import { supabase } from "@/lib/supabaseClient"
-import { articles as fallbackArticles, type Article } from "@/lib/articles"
+import {
+  articles as fallbackArticles,
+  mergeArticlesWithLocalFallbacks,
+  type Article,
+} from "@/lib/articles"
 import { photos as fallbackPhotos, type Photo } from "@/lib/photography"
 import { siteChanges as fallbackChanges, type SiteChange } from "@/lib/changes"
 import { books as fallbackBooks, type Book } from "@/lib/books"
@@ -50,7 +54,7 @@ export function SupabaseDataProvider({ children }: { children: React.ReactNode }
         ])
 
         setData({
-          articles: articlesRes.data && articlesRes.data.length > 0 ? articlesRes.data : fallbackArticles,
+          articles: mergeArticlesWithLocalFallbacks(articlesRes.data),
           photos: photosRes.data && photosRes.data.length > 0 ? photosRes.data : fallbackPhotos,
           siteChanges: changesRes.data && changesRes.data.length > 0 ? changesRes.data : fallbackChanges,
           books: booksRes.data && booksRes.data.length > 0 ? booksRes.data : fallbackBooks,

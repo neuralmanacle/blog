@@ -9,6 +9,21 @@ export interface Article {
 
 export type FieldNote = Article & { number: number; readingTime: string }
 
+export function mergeArticlesWithLocalFallbacks(
+  remoteArticles: Article[] | null | undefined,
+): Article[] {
+  if (!remoteArticles || remoteArticles.length === 0) return articles
+
+  const remoteHrefs = new Set(
+    remoteArticles.map((article) => article.href).filter(Boolean),
+  )
+  const missingLocalArticles = articles.filter(
+    (article) => article.href && !remoteHrefs.has(article.href),
+  )
+
+  return [...remoteArticles, ...missingLocalArticles]
+}
+
 const INCLUDE_TAGS = new Set([
   "tech", "dsp", "juce", "c++", "game-audio", "audio", "deep-learning",
   "speech-to-text","vertex-ai", "agent-memory",
@@ -67,6 +82,13 @@ export function getFieldNotes(): FieldNote[] {
 }
 
 export const articles: Article[] = [
+  {
+    date: "October 25, 2026",
+    title: "Step 8: From One LFO to a Modulation System",
+    href: "/articles/step-08-building-a-modulation-system",
+    takeaway: "How reusable modulation sources, explicit routes, and shared parameter handling can grow Drizel beyond its first LFO.",
+    tags: ["tech", "dsp", "juce", "audio", "c++"],
+  },
   {
     date: "October 24, 2026",
     title: "Step 7: Giving Sound Movement with Modulation",
