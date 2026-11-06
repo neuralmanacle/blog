@@ -8,7 +8,8 @@ import RevealOnView from "@/components/reveal-on-view"
 
 const articleSource = join(
   process.cwd(),
-  "drafts",
+  "content",
+  "articles",
   "step-09-drizel-playable-granular-instrument-explained.md",
 )
 
