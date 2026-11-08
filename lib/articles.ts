@@ -83,6 +83,13 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "November 5, 2026",
+    title: "Step 9: Making Drizel a Playable Granular Instrument",
+    href: "/articles/step-09-making-drizel-a-playable-granular-instrument",
+    takeaway: "How MIDI note priority, velocity envelopes, expressive controllers, and presets turn Drizel's grain cloud into a playable instrument.",
+    tags: ["tech", "dsp", "juce", "audio", "c++"],
+  },
+  {
     date: "October 25, 2026",
     title: "Step 8: From One LFO to a Modulation System",
     href: "/articles/step-08-building-a-modulation-system",
