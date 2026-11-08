@@ -44,10 +44,12 @@ A simplified mathematical description of grain $k$ is:
 $$
 g_k[n]
 =a_k\,w_k[n-n_k]\,
-x\left(q_k+r_k(n-n_k)\right)
+\hat{x}\left(q_k+r_k(n-n_k)\right),
+\qquad
+w_k[m]=0\ \text{unless}\ 0\le m<L_k
 $$
 
-Here, $x$ is the source recording, $n_k$ is the grain’s launch time, $q_k$ is its source starting position, $r_k$ is its read increment, $w_k$ is its window, and $a_k$ is its gain. The window is understood to contribute only during that grain’s lifetime. Fractional source positions require interpolation, discussed below.
+Here, $\hat{x}$ is the interpolated source recording, $L_k$ is the grain length in output frames, $n_k$ is the grain’s launch time, $q_k$ is its source starting position, $r_k$ is its read increment, $w_k$ is its window, and $a_k$ is its gain. The window is understood to contribute only during that grain’s lifetime. Fractional source positions require interpolation, discussed below.
 
 The cloud adds active grains:
 
@@ -64,7 +66,7 @@ Abruptly cutting a waveform can create a discontinuity. A sudden step has broad 
 Drizel prepares Hann windows:
 
 $$
-w[m]=\frac12\left(1-\cos\frac{2\pi m}{L-1}\right),
+w[m]=\frac12\left(1-\cos\left(\frac{2\pi m}{L-1}\right)\right),
 \qquad 0\le m<L
 $$
 
@@ -185,7 +187,7 @@ Equal temperament uses equal frequency ratios between adjacent semitones. Twelve
 
 $$
 a^{12}=2
-\quad\Rightarrow\quad
+\;\Rightarrow\;
 a=2^{1/12}
 $$
 
@@ -277,7 +279,7 @@ $$
 At 48 kHz, the limit is 24 kHz. A 15 kHz source component transposed up an octave would become 30 kHz. Sampling at 48 kHz can fold it to an audible alias at:
 
 $$
-|30\,000-48\,000|=18\,000\text{ Hz}
+\left|30{,}000-48{,}000\right|=18{,}000\ \text{Hz}
 $$
 
 Linear interpolation does not provide the selective filtering required to prevent this across arbitrary transposition ratios. A more accurate interpolator may improve reconstruction without independently solving anti-aliasing. A band-limited resampling strategy would be a separate extension.
@@ -301,7 +303,7 @@ void ramp(double target, double seconds) noexcept
 For current level $E_0$, target $T$, duration $t$, and sample rate $f_s$:
 
 $$
-N=\max(1,\operatorname{round}(t f_s)),
+N=\max\bigl(1,\operatorname{round}(t\,f_s)\bigr),
 \qquad
 \Delta=\frac{T-E_0}{N}
 $$
@@ -352,7 +354,7 @@ $$
 Velocity 64 maps to approximately 0.504. Relative to full amplitude, that is:
 
 $$
-20\log_{10}(0.504)\approx-5.95\text{ dB}
+20\log_{10}(0.504)\approx-5.95\ \text{dB}
 $$
 
 Half velocity therefore produces roughly half amplitude for otherwise identical cloud audio. It does not necessarily sound half as loud. Perception depends on frequency content, duration, listening level, and other factors.
@@ -447,7 +449,7 @@ The borrowed pointers are used only while their buffer is valid. The MIDI buffer
 Pitch bend uses fourteen bits, assembled from two seven-bit data bytes:
 
 $$
-B=\text{LSB}+128\,\text{MSB}
+B=\mathrm{LSB}+128\,\mathrm{MSB}
 $$
 
 Its integer range is 0–16,383, with center at 8,192. Step 9 maps the range to −2 through +2 semitones:
@@ -536,15 +538,15 @@ Subtracting the integer part wraps phase into a single cycle. At 0.5 Hz, one cyc
 The modulation router uses these target formulas, with depth $d$ and LFO value $l$:
 
 $$
-P_{\text{target}}
-=\operatorname{clamp}(P+0.25dl,0,1)
+P_{\text{routed}}
+=\operatorname{clamp}\left(P_{\text{patch}}+0.25\,d\,l,\;0,\;1\right)
 $$
 
 or:
 
 $$
 p_{\text{routed}}
-=\operatorname{clamp}(p_{\text{patch}}+12dl,-24,24)
+=\operatorname{clamp}\left(p_{\text{patch}}+12\,d\,l,\;-24,\;24\right)
 $$
 
 At full depth, position can move by one-quarter of the sample length in either direction; pitch can move by twelve semitones before the router’s limits apply. Position modulation changes the region used by newly launched grains. Pitch modulation changes their playback-rate target.
@@ -569,7 +571,7 @@ with:
 
 $$
 \alpha=1-e^{-1/(f_s\tau)},
-\qquad \tau=0.020\text{ s}
+\qquad \tau=0.020\ \text{s}
 $$
 
 This is a one-pole low-pass filter applied to the control signal. It reduces abrupt parameter steps and the audible discontinuities they can cause.
@@ -630,7 +632,7 @@ This happens **for every frame inside the block**, not once at the end of the bl
 A simplified output equation is:
 
 $$
-y[n]=E[n]\;S\left(c[n]G[n]F[n]\right)
+y[n]=E[n]\,S\left(c[n]\,G[n]\,F[n]\right)
 $$
 
 Here, $E$ is the MIDI envelope, $c$ is the cloud, $G$ is smoothed gain, $F$ is the source-swap fade, and $S$ is the safety stage. Once $E=0$, the finite returned engine frame is multiplied by zero.
@@ -648,7 +650,7 @@ Applying the MIDI envelope last preserves its finite timing. The existing engine
 The same amplitude multiplier is applied to left and right, preserving their relative balance. For mono output, the processor uses:
 
 $$
-y_{\text{mono}}=\frac{L+R}{2}
+y_{\text{mono}}[n]=\frac{L[n]+R[n]}{2}
 $$
 
 The factor of one-half limits simple summation gain. It does not prevent opposite-phase content from canceling during downmixing.
@@ -704,7 +706,7 @@ $$
 For 128 frames at 48 kHz:
 
 $$
-T_{\text{block}}\approx2.67\text{ ms}
+T_{\text{block}}\approx2.67\ \text{ms}
 $$
 
 The audio processing must meet its deadline consistently within the host’s overall workload. A low average processing time does not compensate for occasional long stalls that cause an underrun.

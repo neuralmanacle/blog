@@ -61,7 +61,8 @@ next-env.d.ts
 ../Resume.pdf
 
 # Local drafts
-/drafts/
+/drafts/*
+!/drafts/step-09-drizel-playable-granular-instrument-explained.md
 
 # Ignore raw HEIC photos
 **/*.heic
