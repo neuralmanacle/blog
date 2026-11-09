@@ -29,6 +29,7 @@ export const metadata: Metadata = {
 }
 
 const drizelArticleHrefs = new Set([
+  "/articles/step-09-making-drizel-a-playable-granular-instrument",
   "/articles/step-08-building-a-modulation-system",
   "/articles/step-07-giving-sound-movement-with-modulation",
   "/articles/step-06-playing-the-grain-cloud-live",
