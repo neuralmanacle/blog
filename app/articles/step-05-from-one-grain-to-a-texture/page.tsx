@@ -2,6 +2,7 @@ import Link from "next/link"
 import ArticleTags from "@/components/article-tags"
 import CodeBlock from "@/components/code-block"
 import RevealOnView from "@/components/reveal-on-view"
+import VideoExplanation from "@/components/video-explanation"
 
 const tableClass =
   "w-full min-w-[36rem] border-collapse text-left font-sans text-base"
@@ -604,6 +605,11 @@ ctest --test-dir build --output-on-failure`}
                 Series note: blog Step 5 corresponds to Layer 4, “Many grains,” in the dependency roadmap. Layer 5 of that roadmap is the later real-time engine milestone.
               </p>
             </div>
+
+            <VideoExplanation
+              videoId="-tYtajtnX2c"
+              title="Step 5: From One Grain to a Texture"
+            />
 
             <ArticleTags />
 

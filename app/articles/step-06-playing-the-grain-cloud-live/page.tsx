@@ -2,6 +2,7 @@ import Link from "next/link"
 import ArticleTags from "@/components/article-tags"
 import CodeBlock from "@/components/code-block"
 import RevealOnView from "@/components/reveal-on-view"
+import VideoExplanation from "@/components/video-explanation"
 
 const tableClass =
   "w-full min-w-[36rem] border-collapse text-left font-sans text-base"
@@ -393,6 +394,11 @@ ctest --test-dir build-plugin --output-on-failure`}
                 is a later Layer 6 milestone.
               </p>
             </div>
+
+            <VideoExplanation
+              videoId="s-J79CpH6qA"
+              title="Step 6: Live Granular Audio"
+            />
 
             <ArticleTags />
 

@@ -2,6 +2,7 @@ import Link from "next/link"
 import ArticleTags from "@/components/article-tags"
 import CodeBlock from "@/components/code-block"
 import RevealOnView from "@/components/reveal-on-view"
+import VideoExplanation from "@/components/video-explanation"
 
 function MathEquation({ markup, label }: { markup: string; label: string }) {
   return (
@@ -583,6 +584,11 @@ ctest --test-dir build --output-on-failure`}
                 And that is exactly what makes Step 7 important: it turns Drizel from a responsive instrument into an evolving one.
               </p>
             </div>
+
+            <VideoExplanation
+              videoId="kh-P8vJrcJY"
+              title="Step 7: Giving Sound Movement with Modulation"
+            />
 
             <ArticleTags />
 
