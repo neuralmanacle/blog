@@ -3,6 +3,7 @@ import Link from "next/link"
 import ArticleTags from "@/components/article-tags"
 import CodeBlock from "@/components/code-block"
 import RevealOnView from "@/components/reveal-on-view"
+import VideoExplanation from "@/components/video-explanation"
 
 export const metadata: Metadata = {
   title: "Step 8: From One LFO to a Modulation System",
@@ -338,6 +339,11 @@ current value = smooth(current value, safe target)`}
                 sight of musical intent or real-time reliability.
               </p>
             </div>
+
+            <VideoExplanation
+              videoId="JgEzIlNsFfs"
+              title="Step 8: Designing a Modulation System"
+            />
 
             <ArticleTags />
 
