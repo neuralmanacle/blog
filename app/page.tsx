@@ -1,8 +1,5 @@
-"use client"
-
-import * as React from "react"
 import { Hero } from "@/components/hero"
-import { FieldNoteCard } from "@/components/field-note-card"
+import { FieldNotesCarousel } from "@/components/field-notes-carousel"
 import { ExperienceItem } from "@/components/experience-item"
 import { FutureProjectCard } from "@/components/future-project-card"
 import { CurrentReading } from "@/components/current-reading"
@@ -11,45 +8,21 @@ import { NewsletterForm } from "@/components/newsletter-form"
 import { AboutProfile } from "@/components/about-profile"
 import { getFieldNotes } from "@/lib/articles"
 
-const allFieldNotes = getFieldNotes().filter((note) => !!note.href)
+const allFieldNotes = Array.from(
+  new Map(
+    getFieldNotes()
+      .filter((note) => !!note.href)
+      .map((note) => [note.href, note]),
+  ).values(),
+)
 
 export default function Page() {
-  const [startIndex, setStartIndex] = React.useState(0)
-  const windowSize = 3
-  const maxStartIndex = Math.max(0, allFieldNotes.length - windowSize)
-  const visibleNotes = allFieldNotes.slice(startIndex, startIndex + windowSize)
-  const hasMoreNotes = allFieldNotes.length > windowSize
-
-  React.useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") {
-        setStartIndex((current) => Math.min(current + 1, maxStartIndex))
-      }
-      if (event.key === "ArrowLeft") {
-        setStartIndex((current) => Math.max(current - 1, 0))
-      }
-    }
-
-    window.addEventListener("keydown", onKeyDown)
-    return () => window.removeEventListener("keydown", onKeyDown)
-  }, [maxStartIndex])
-
-  const goToPrevious = () => {
-    if (allFieldNotes.length <= windowSize) return
-    setStartIndex((current) => Math.max(current - 1, 0))
-  }
-
-  const goToNext = () => {
-    if (allFieldNotes.length <= windowSize) return
-    setStartIndex((current) => Math.min(current + 1, maxStartIndex))
-  }
-
   return (
     <main className="relative z-10">
       <Hero
         title="Audio Software Engineer"
         tagline="in a synthetic dream"
-        description="I document the systems, ideas, and experiments behind DSP, C++, JUCE, computational music synthesis, and audio software engineering in public."
+        description="I build and document audio plugins with C++ and JUCE, focusing on real-time DSP and computational music synthesis while exploring audio ML, embedded neural networks, and game audio."
         primaryCta={{ label: "Explore Projects", href: "#projects" }}
         secondaryCta={{ label: "Read Articles", href: "#field-notes" }}
       />
@@ -101,42 +74,7 @@ export default function Page() {
           </div>
         </div>
 
-        {hasMoreNotes && (
-          <div className="mb-4 flex justify-end gap-2">
-            <button
-              type="button"
-              onClick={goToPrevious}
-              aria-label="Show previous articles"
-              disabled={startIndex === 0}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900 text-lg text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] transition hover:border-transparent hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%] disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              onClick={goToNext}
-              aria-label="Show next articles"
-              disabled={startIndex >= maxStartIndex}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900 text-lg text-transparent bg-[length:200%_100%] bg-clip-text [background-image:var(--site-accent)] transition hover:border-transparent hover:text-[#0D0D0D] hover:[background-image:var(--site-accent)] hover:bg-[length:200%_100%] disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              →
-            </button>
-          </div>
-        )}
-
-        <div className="space-y-2">
-          {visibleNotes.map((note, index) => (
-            <FieldNoteCard
-              key={`${note.href}-${startIndex + index}`}
-              number={startIndex + index + 1}
-              title={note.title}
-              date={note.date}
-              readingTime={note.readingTime}
-              tags={note.tags}
-              href={note.href}
-            />
-          ))}
-        </div>
+        <FieldNotesCarousel notes={allFieldNotes} />
       </section>
 
       <section id="resources" className="mx-auto max-w-5xl px-6 py-16 sm:px-8 sm:py-20">
