@@ -83,6 +83,13 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "November 9, 2026",
+    title: "Step 10: Offline Sample Analysis",
+    href: "/articles/step-10-offline-sample-analysis",
+    takeaway: "How an offline Python analyzer maps a WAV into sample coordinates, waveform and spectral features, and a plot for feature-guided grain selection.",
+    tags: ["tech", "dsp", "juce", "audio", "python", "c++"],
+  },
+  {
     date: "November 5, 2026",
     title: "Step 9: Making Drizel a Playable Granular Instrument",
     href: "/articles/step-09-making-drizel-a-playable-granular-instrument",

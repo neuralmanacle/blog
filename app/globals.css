@@ -107,6 +107,39 @@ html:not(.dark) :not(pre) > code {
   white-space: normal;
 }
 
+.step-10-equations {
+  isolation: isolate;
+}
+
+.step-10-equations .markdown-article-content .katex-display {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 2rem 0;
+  overscroll-behavior-x: contain;
+  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 3vw, 1rem);
+  border: 1px solid rgb(0 0 0 / 0.1);
+  border-radius: 0.75rem;
+  background-color: rgb(0 0 0 / 0.025);
+  font-size: 0.9rem;
+}
+
+.dark .step-10-equations .markdown-article-content .katex-display {
+  border-color: rgb(255 255 255 / 0.1);
+  background-color: rgb(255 255 255 / 0.035);
+}
+
+.step-10-equations .markdown-article-content .katex-display > .katex {
+  white-space: nowrap;
+  font-size: 1rem !important;
+  font-weight: 400;
+}
+
+@media (min-width: 640px) {
+  .step-10-equations .markdown-article-content .katex-display > .katex {
+    font-size: 1.5rem !important;
+  }
+}
+
 html:not(.dark) [class~="text-white"],
 html:not(.dark) [class~="text-neutral-100"],
 html:not(.dark) [class~="text-neutral-200"] {

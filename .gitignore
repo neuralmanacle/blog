@@ -63,6 +63,7 @@ next-env.d.ts
 # Local drafts
 /drafts/*
 !/drafts/step-09-drizel-playable-granular-instrument-explained.md
+!/drafts/step-10-offline-sample-analysis.md
 
 # Ignore raw HEIC photos
 **/*.heic

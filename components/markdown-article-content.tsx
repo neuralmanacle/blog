@@ -1,3 +1,4 @@
+import { isValidElement, type ReactNode } from "react"
 import { MarkdownAsync, type Components } from "react-markdown"
 import rehypeKatex from "rehype-katex"
 import remarkGfm from "remark-gfm"
@@ -9,6 +10,31 @@ const linkClass =
 const tableClass =
   "w-full min-w-[36rem] border-collapse text-left font-sans text-lg"
 const cellClass = "p-4"
+
+function getHeadingText(children: ReactNode): string {
+  if (typeof children === "string" || typeof children === "number") {
+    return String(children)
+  }
+
+  if (Array.isArray(children)) {
+    return children.map(getHeadingText).join("")
+  }
+
+  if (isValidElement<{ children?: ReactNode }>(children)) {
+    return getHeadingText(children.props.children)
+  }
+
+  return ""
+}
+
+function getHeadingId(children: ReactNode): string {
+  return getHeadingText(children)
+    .toLowerCase()
+    .trim()
+    .replace(/[^\p{L}\p{N}\s-]/gu, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+}
 
 const components: Components = {
   a: ({ children, href }) => {
@@ -46,12 +72,18 @@ const components: Components = {
     )
   },
   h2: ({ children }) => (
-    <h2 className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white">
+    <h2
+      id={getHeadingId(children)}
+      className="pt-4 text-2xl font-semibold text-neutral-900 dark:text-white"
+    >
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="pt-4 text-xl font-semibold text-neutral-900 dark:text-white">
+    <h3
+      id={getHeadingId(children)}
+      className="pt-4 text-xl font-semibold text-neutral-900 dark:text-white"
+    >
       {children}
     </h3>
   ),
