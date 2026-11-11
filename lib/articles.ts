@@ -83,6 +83,14 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "November 11, 2026",
+    title: "Step 11: Teaching Drizel Where to Start a Grain",
+    href: "/articles/step-11-teaching-drizel-where-to-start-a-grain",
+    takeaway:
+      "How Drizel measures transients, sustain, and brightness to guide grain starts while keeping real-time playback predictable.",
+    tags: ["tech", "dsp", "juce", "audio", "c++"],
+  },
+  {
     date: "November 9, 2026",
     title: "Step 10: Offline Sample Analysis",
     href: "/articles/step-10-offline-sample-analysis",

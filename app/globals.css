@@ -134,6 +134,10 @@ html:not(.dark) :not(pre) > code {
   font-weight: 400;
 }
 
+.step-11-equations .markdown-article-content .katex-display {
+  margin: 2.75rem 0;
+}
+
 @media (min-width: 640px) {
   .step-10-equations .markdown-article-content .katex-display > .katex {
     font-size: 1.5rem !important;

@@ -64,6 +64,7 @@ next-env.d.ts
 /drafts/*
 !/drafts/step-09-drizel-playable-granular-instrument-explained.md
 !/drafts/step-10-offline-sample-analysis.md
+!/drafts/step-11-teaching-drizel-where-to-start-a-grain.md
 
 # Ignore raw HEIC photos
 **/*.heic
