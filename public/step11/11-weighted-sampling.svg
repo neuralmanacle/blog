@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 170" role="img" aria-label="11-weighted-sampling"><style>
+:root{color-scheme:light dark;--ink:#243247;--muted:#59677a;--grid:#cbd5e1;--teal:#0f766e;--blue:#2563eb;--orange:#b45309;--panel:#e2e8f0}
+@media(prefers-color-scheme:dark){:root{--ink:#e2e8f0;--muted:#a5b4c7;--grid:#526174;--teal:#5eead4;--blue:#93c5fd;--orange:#fbbf24;--panel:#334155}}
+text{fill:var(--ink);font-family:system-ui,-apple-system,sans-serif;font-size:12px}
+.small{font-size:10px;fill:var(--muted)}.title{font-size:15px;font-weight:650}
+.axis{stroke:var(--grid);stroke-width:1}.guide{stroke:var(--grid);stroke-dasharray:4 4}
+.a{stroke:var(--teal);fill:none;stroke-width:2.5}.b{stroke:var(--blue);fill:none;stroke-width:2.5}
+.fill-a{fill:var(--teal)}.fill-b{fill:var(--blue)}.fill-o{fill:var(--orange)}
+</style><text x="25" y="25" class="title" text-anchor="start">Cumulative weighted selection: weights 1, 2, 5</text><rect x="40" y="65" width="80" height="55" rx="3" class="fill-b" opacity="0.7"/><rect x="120" y="65" width="160" height="55" rx="3" class="fill-a" opacity="0.75"/><rect x="280" y="65" width="400" height="55" rx="3" class="fill-o" opacity="0.75"/><text x="40" y="143" class="small" text-anchor="middle">0</text><text x="120" y="143" class="small" text-anchor="middle">1</text><text x="280" y="143" class="small" text-anchor="middle">3</text><text x="680" y="143" class="small" text-anchor="middle">8</text><text x="80" y="98" class="" text-anchor="middle">12.5%</text><text x="200" y="98" class="" text-anchor="middle">25%</text><text x="480" y="98" class="" text-anchor="middle">62.5%</text><line x1="232" y1="48" x2="232" y2="125" class="guide"/><text x="232" y="42" class="small" text-anchor="middle">u = 2.4 → candidate 2</text></svg>

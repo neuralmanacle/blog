@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 215" role="img" aria-label="07-spectral-centroid"><style>
+:root{color-scheme:light dark;--ink:#243247;--muted:#59677a;--grid:#cbd5e1;--teal:#0f766e;--blue:#2563eb;--orange:#b45309;--panel:#e2e8f0}
+@media(prefers-color-scheme:dark){:root{--ink:#e2e8f0;--muted:#a5b4c7;--grid:#526174;--teal:#5eead4;--blue:#93c5fd;--orange:#fbbf24;--panel:#334155}}
+text{fill:var(--ink);font-family:system-ui,-apple-system,sans-serif;font-size:12px}
+.small{font-size:10px;fill:var(--muted)}.title{font-size:15px;font-weight:650}
+.axis{stroke:var(--grid);stroke-width:1}.guide{stroke:var(--grid);stroke-dasharray:4 4}
+.a{stroke:var(--teal);fill:none;stroke-width:2.5}.b{stroke:var(--blue);fill:none;stroke-width:2.5}
+.fill-a{fill:var(--teal)}.fill-b{fill:var(--blue)}.fill-o{fill:var(--orange)}
+</style><text x="25" y="25" class="title" text-anchor="start">Spectral centroid = power-weighted frequency center</text><line x1="45" y1="178" x2="675" y2="178" class="axis"/><rect x="95" y="77" width="65" height="101" rx="3" class="fill-b" opacity="0.75"/><rect x="485" y="128" width="65" height="50" rx="3" class="fill-a" opacity="0.8"/><line x1="257.0" y1="45" x2="257.0" y2="180" class="guide"/><text x="265.0" y="55" class="small" text-anchor="start">Centroid ≈ 2667 Hz</text><text x="127" y="198" class="small" text-anchor="middle">1 kHz, power 2</text><text x="517" y="198" class="small" text-anchor="middle">6 kHz, power 1</text></svg>

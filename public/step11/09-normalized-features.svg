@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 190" role="img" aria-label="09-normalized-features"><style>
+:root{color-scheme:light dark;--ink:#243247;--muted:#59677a;--grid:#cbd5e1;--teal:#0f766e;--blue:#2563eb;--orange:#b45309;--panel:#e2e8f0}
+@media(prefers-color-scheme:dark){:root{--ink:#e2e8f0;--muted:#a5b4c7;--grid:#526174;--teal:#5eead4;--blue:#93c5fd;--orange:#fbbf24;--panel:#334155}}
+text{fill:var(--ink);font-family:system-ui,-apple-system,sans-serif;font-size:12px}
+.small{font-size:10px;fill:var(--muted)}.title{font-size:15px;font-weight:650}
+.axis{stroke:var(--grid);stroke-width:1}.guide{stroke:var(--grid);stroke-dasharray:4 4}
+.a{stroke:var(--teal);fill:none;stroke-width:2.5}.b{stroke:var(--blue);fill:none;stroke-width:2.5}
+.fill-a{fill:var(--teal)}.fill-b{fill:var(--blue)}.fill-o{fill:var(--orange)}
+</style><text x="25" y="25" class="title" text-anchor="start">Normalize onset by RMS; brightness by Nyquist</text><text x="50" y="65" class="" text-anchor="start">Relative onset</text><text x="50" y="100" class="title" text-anchor="start">0.12 ÷ 0.4 = 0.30</text><rect x="50" y="125" width="280" height="20" rx="3" class="fill-b" opacity="0.15"/><rect x="50" y="125" width="84.0" height="20" rx="3" class="fill-a" opacity="1"/><text x="50" y="167" class="small" text-anchor="start">0</text><text x="330" y="167" class="small" text-anchor="end">1</text><text x="400" y="65" class="" text-anchor="start">Normalized brightness</text><text x="400" y="100" class="title" text-anchor="start">6000 ÷ 24000 = 0.25</text><rect x="400" y="125" width="280" height="20" rx="3" class="fill-b" opacity="0.15"/><rect x="400" y="125" width="70.0" height="20" rx="3" class="fill-a" opacity="1"/><text x="400" y="167" class="small" text-anchor="start">0</text><text x="680" y="167" class="small" text-anchor="end">1</text></svg>
