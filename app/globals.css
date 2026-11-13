@@ -85,6 +85,12 @@ html:not(.dark) {
   color-scheme: light;
 }
 
+@media (min-width: 1024px) {
+  html {
+    font-size: 110%;
+  }
+}
+
 /* Inline code */
 html:not(.dark) :not(pre) > code {
   background: #E9E8DF !important;
