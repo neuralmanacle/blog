@@ -40,18 +40,34 @@ export function AboutProfile({ id = "about" }: { id?: string }) {
             Arjun · əɾ.d͡ʒʊn
           </h2>
 
-          <div className="mt-5 space-y-4 text-sm leading-7 text-neutral-300 sm:mt-6 sm:space-y-5 sm:text-base sm:leading-8">
+          <div className="mt-5 space-y-4 text-[1.3rem] leading-[2.6rem] text-neutral-300 sm:mt-6 sm:space-y-5 sm:text-[1.4625rem] sm:leading-[2.925rem]">
             <p>
-              I&apos;m an aspiring audio software engineer from India focused on digital signal processing,
-              C++, JUCE, computational music synthesis, and game audio.
+              I&apos;m Arjun Shenoy, an audio software engineer and musician from
+              India. My work centres on audio plugin development, audio ML, real-time audio DSP, computational music synthesis, embedded neural networks, game audio design and anything that is related to audio tech.
             </p>
             <p>
-              This website is my public engineering notebook — a place to document what I&apos;m learning,
-              the textbooks I&apos;m studying, and the audio software I&apos;m building.
+              I&apos;m currently developing Drizel, a granular synthesizer built
+              around grain scheduling, windowing, sample interpolation, pitch
+              manipulation, and parameter modulation. Through this project,
+              I&apos;m studying audio engine architecture, communication between
+              audio and UI threads, parameter smoothing, MIDI handling, and
+              plugin interface design.
             </p>
             <p>
-              I&apos;m also drawn to nu-jazz, music production, and exploring how different instruments shape
-              sound, expression, and improvisation.
+              I&apos;m also expanding into audio machine learning, embedded neural
+              network inference, and game audio. My interests include
+              integrating neural models with DSP, deploying inference under CPU
+              and memory constraints, and designing audio systems with
+              predictable latency and reliable real-time behaviour.
+            </p>
+            <p>
+              Sound design, music production, and live performance provide the
+              musical context for this work, alongside my ongoing study of jazz
+              guitar and improvisation. Nu Jazz is the kind of music that I always wanted to make and perform live.
+            </p>
+            <p>
+              Neural Manacle Blog is my public technical notebook, documenting
+              implementation decisions, DSP theory, experiments, sound design, product philosophy and everything audio tech.
             </p>
           </div>
 
