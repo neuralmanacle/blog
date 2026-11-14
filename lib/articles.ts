@@ -83,6 +83,13 @@ export function getFieldNotes(): FieldNote[] {
 
 export const articles: Article[] = [
   {
+    date: "November 14, 2026",
+    title: "Steps 12–13: From Audio ML to Voice and Text Control",
+    href: "/articles/drizel-steps-12-13-audio-ml-voice-and-text-control",
+    takeaway: "I tested whether a classifier could pick better grain starts, then built a way to describe how those starts should move through a sample.",
+    tags: ["tech", "dsp", "audio", "ml", "juce"],
+  },
+  {
     date: "November 11, 2026",
     title: "Step 11: Teaching Drizel Where to Start a Grain",
     href: "/articles/step-11-teaching-drizel-where-to-start-a-grain",
