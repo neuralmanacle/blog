@@ -333,14 +333,14 @@ article.prose {
 
 @media (max-width: 767px) {
   article.prose {
-    font-size: 1rem;
+    font-size: 15pt;
     line-height: 1.5rem;
   }
 
   article.prose p,
   article.prose li,
   article.prose blockquote {
-    font-size: 1rem !important;
+    font-size: 15pt !important;
     line-height: 1.5rem !important;
   }
 }

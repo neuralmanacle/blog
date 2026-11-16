@@ -40,7 +40,7 @@ export function AboutProfile({ id = "about" }: { id?: string }) {
             Arjun · əɾ.d͡ʒʊn
           </h2>
 
-          <div className="mt-5 space-y-4 text-[1.3rem] leading-[2.6rem] text-neutral-300 sm:mt-6 sm:space-y-5 sm:text-[1.4625rem] sm:leading-[2.925rem]">
+          <div className="mt-5 space-y-4 text-[15pt] leading-[2.6rem] text-neutral-300 sm:mt-6 sm:space-y-5 sm:text-[1.4625rem] sm:leading-[2.925rem]">
             <p>
               I&apos;m Arjun Shenoy, an audio software engineer and musician from
               India. My work centres on audio plugin development, audio ML, real-time audio DSP, computational music synthesis, embedded neural networks, game audio design and anything that is related to audio tech.
